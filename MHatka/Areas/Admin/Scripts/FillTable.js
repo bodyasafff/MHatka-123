@@ -389,7 +389,7 @@ $("#pagination").on('click', 'button', function () {
     $("#pagination").empty();
     GetProducts();
 })
-
+ 
 $("#SelGroupBtns").on('click', 'button', function () {
     numLastPage = 1;
     numThisPage = 1;
