@@ -1,0 +1,64 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Модна хатка</title>
+    <meta charset="utf-8">
+    <link href="~/Content/ProductsCss.css" rel="stylesheet" />
+    <link href="~/Content/fontawesome.min.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <nav id="main-bar">
+            <ul>
+                <a class="ico" href="@Url.Action("Index")"><img src="~/Content/imgProducts/ModnaXatkav3.png" alt="ico" style="width: 125px; height: 125px;margin-top: -1vh;"></a>
+                <div class="nav-right">
+                    <a href="@Url.Action("Basket")" class="shopping_cart">Мій Кошик<span></span></a><img src="~/Content/imgProducts/shopping-cart.png" alt="shopping_cart" style="width: 24px; height: 24px;margin-top: -1vh;">
+                </div>
+            </ul>
+        </nav>
+    </header>
+    <div class="wrapper">
+        <div class="clearfix">
+            <div class="menu" id="menu">
+            </div>
+            <div class="vuborka">
+                <select id="selBrend" class="comboBox">
+                </select>
+                <select id="selCountry" class="comboBox"></select>
+                <select id="selFiller" class="comboBox"></select>
+                <select id="selMaterial" class="comboBox"></select>
+                <select id="selTypeCloth" class="comboBox"></select>
+                <select id="selSpecial" class="comboBox"></select>
+            </div>
+            <div class="clearfix">
+                <div class="Tabl">
+                    <table id="tableContent" class="mainTable"></table>
+                </div>
+            </div>
+            <div id="pagination" class="nuvPagination">
+            </div>
+        </div>
+    </div>
+    <footer>
+        <label class="footer_main">Підписуйтесь на новини </label>
+        <hr for="mailInfo">
+        <div>
+            <a href="#"><label>Головна</label></a><br />
+            <a href="#"><label>Новини</label></a><br />
+            <a href="#"><label>Контактна форма</label></a>
+        </div>
+        <div>
+            <label class="footer_mains">Cлідкуй за нами</label><br />
+            <a class="footer_mains" href="https://www.facebook.com/"><i class="fab fa-facebook"></i></a>
+            <a class="footer_mains" href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+            <a class="footer_mains" href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a>
+        </div>
+    </footer>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/ProductJs.js"></script>
+    <script src="~/Scripts/454d8be7f7.js"></script>
+</body>
+</html>

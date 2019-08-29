@@ -1,0 +1,167 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+/* Split the screen in half */
+.split {
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+/* Control the left side */
+.left {
+    left: 0;
+    width: 40%;
+    background: url(img/login-background.jpg);
+    background-position: 50%;
+    background-size: cover;
+    font-size: 11.2vh;
+}
+
+/* Control the right side */
+.right {
+    right: 0;
+    width: 60%;
+    background-image: linear-gradient(120deg, #3498db, #8e44ad);
+}
+
+/* If you want the content centered horizontally and vertically */
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+/* Login form */
+.login-form {
+    width: 50.4vh;
+    background: #f1f1f1;
+    height: 81.2vh;
+    padding: 11.2vh 5.6vh;
+    border-radius: 1.4vh;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+    .login-form h1 {
+        text-align: center;
+        margin-bottom: 8.4vh;
+    }
+
+.txtb {
+    width: 40vh;
+    border-bottom: 2px solid #adadad;
+    position: relative;
+}
+
+    .txtb label {
+        margin-top: 2vh;
+    }
+
+    .txtb input {
+        font-size: 2.1vh;
+        color: white;
+        border: none;
+        width: 90%;
+        outline: none;
+        background: none;
+        padding: 0 0.74vh;
+        height: 3vh;
+    }
+
+    .txtb textarea {
+        font-size: 2.1vh;
+        border: none;
+        outline: none;
+        background: none;
+        padding: 0 0.74vh;
+    }
+
+    .txtb span::before {
+        content: attr(data-placeholder);
+        position: absolute;
+        top: 50%;
+        left: 0.74vh;
+        color: #adadad;
+        transform: translateY(-50%);
+        z-index: -1;
+        transition: .5s;
+    }
+
+    .txtb span::after {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(120deg, #3498db, #8e44ad);
+        transition: .5s;
+    }
+
+.focus + span::before {
+    top: -5px;
+}
+
+.focus + span::after {
+    width: 100%;
+}
+
+/* Кнопка */
+.logbtn {
+    top: 50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 7vh;
+    border: none;
+    background: linear-gradient(120deg, #3498db, #8e44ad, #3498db);
+    background-size: 200%;
+    color: #fff;
+    outline: none;
+    cursor: pointer;
+    font-size: 2.8vh;
+    transition: .5s;
+}
+
+    .logbtn:hover {
+        background-position: right;
+    }
+
+/* Нижній текст */
+.bottom-text {
+    margin-top: 8.4vh;
+    text-align: center;
+    font-size: 1.8vh;
+}
+
+.activeBox {
+    display: inline-block !important;
+}
+
+.subcategories button {
+    display: none;
+}
+
+.unactiveAE button {
+    display: none;
+}
+
+.activeAEButtons {
+    display: inline-block !important;
+}
+
+button:focus {
+    outline: 0;
+}

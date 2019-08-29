@@ -1,0 +1,316 @@
+﻿@{ 
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Модна хатка</title>
+    <link href="~/Content/StyleMainWondow.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <div id="vanilla-slideshow-container">
+            <div id="vanilla-slideshow">
+                <div class="vanilla-slide">
+                    <img src="~/Content/img/mainpage/1carusel_1/1.jpg" alt="slide1">
+                    <div class="text">
+                        <div style="font-size: 4vh;float: left">Постільна білизна SoundSleep Lyons</div>
+                        <br>
+                        <div style="font-size: 2vh; float: left; padding-top: 2%;">Відкркрий надзвичайний сон</div>
+                        <button class="buttons"><a href="#">Придбати</a></button>
+                    </div>
+                </div>
+                <div class="vanilla-slide">
+                    <img src="~/Content/img/mainpage/1carusel_1/2.jpeg" alt="slide2">
+                    <div class="text">
+                        <div style="font-size: 4vh;float: left">'Cause I'm T.N.T. I'm dynamite T.N.T. </div>
+                        <br>
+                        <div style="font-size: 2vh; float: left; padding-top: 2%;">T.N.T. I'm a power load T.N.T. watch me explode</div>
+                        <button class="buttons"><a href="#">Придбати</a></button>
+                    </div>
+                </div>
+                <div class="vanilla-slide">
+                    <img src="~/Content/img/mainpage/1carusel_1/3.jpg" alt="slide3">
+                    <div class="text">
+                        <div style="font-size: 4vh;float: left">Thunder, thunder, thunder, thunder</div>
+                        <br>
+                        <div style="font-size: 2vh; float: left; padding-top: 2%;">I was caught watch me explode</div>
+                        <button class="buttons"><a href="#">Придбати</a></button>
+                    </div>
+                </div>
+            </div>
+            <div id="nav-bar">
+                <div class="nav-item"><a href="#tkani"><img src="~/Content/img/mainpage/1carusel_1/Menu/1.png" alt=""></a></div>
+                <div class="nav-item"><a href="#bedroom"><img src="~/Content/img/mainpage/1carusel_1/Menu/2.ico" alt=""></a></div>
+                <div class="nav-item"><a href="#bathroom"><img src="~/Content/img/mainpage/1carusel_1/Menu/3.ico" alt=""></a></div>
+                <div class="nav-item"><a href="#hotel"><img src="~/Content/img/mainpage/1carusel_1/Menu/4.ico" alt=""></a></div>
+                <div class="nav-item"><a href="#kitchen"><img src="~/Content/img/mainpage/1carusel_1/Menu/5.ico" alt=""></a></div>
+                <div class="nav-item"><a href="#childroom"><img src="~/Content/img/mainpage/1carusel_1/Menu/6.ico" alt=""></a></div>
+            </div>
+            <div class="icon">
+                <img src="~/Content/img/mainpage/1carusel_1/ico.png" alt="">
+            </div>
+
+            <div id="vanilla-indicators"></div>
+            <div id="vanilla-slideshow-previous">
+                <img src="~/Content/img/mainpage/1carusel_1/arrow-previous.png" alt="slider arrow">
+            </div>
+            <div id="vanilla-slideshow-next">
+                <img src="~/Content/img/mainpage/1carusel_1/arrow-next.png" alt="slider arrow">
+            </div>
+        </div>
+
+    </header>
+    <article>
+        <div class="rows">
+            <div class="column">
+                <img class="two" src="~/Content/img/mainpage/2newandpopular/1.jpg" alt="50/50">
+                <p class="text_main">Італійські рушники SoftTouch</p>
+                <p>For our guests that seek a sophisticated replacement to down, we handpicked this down alternative pillow for its plush loft and progressive craftsmanship.</p>
+                <form method="get" action="#">
+                    <button class="button">Більше &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img class="arrow" src="~/Content/img/mainpage/2newandpopular/arrow-right.png" alt="arrow"></button>
+                </form>
+            </div>
+            <div class="column">
+                <img class="two" src="~/Content/img/mainpage/2newandpopular/2.jpg" alt="50/50">
+                <p class="text_main">Сучасні подушки ModernLook</p>
+                <p>For our guests that seek a sophisticated replacement to down, we handpicked this down alternative pillow for its plush loft and progressive craftsmanship. </p>
+                <form method="get" action="#">
+                    <button class="button">Більше &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img class="arrow" src="~/Content/img/mainpage/2newandpopular/arrow-right.png" alt="arrow"></button>
+                </form>
+            </div>
+        </div>
+    </article>
+    <article>
+        <div class="heading"><h1><a name="tkani">Тканини</a></h1></div>
+        <div class="row">
+            <div class="column_two">
+                <img class="two_1" src="~/Content/img/mainpage/7hotel/6.jpg" alt="50/50">
+                <a href="@Url.Action("ProdInfo",new { productId=1})">Білоруський льон</a>
+            </div>
+            <div class="column_two">
+                <img class="two_1" src="~/Content/img/mainpage/7hotel/6.jpg" alt="50/50">
+                <a href="@Url.Action("Products",new { productId=1})">Блакит</a>
+            </div>
+        </div>
+        <div class="heading"><h1><a name="bedroom">Спальня та гостинна</a></h1></div>
+        <div class="row">
+            <div class="column_four">
+                <img class="four" src="~/Content/img/mainpage/5badroom/1.jpg" alt="25/100">
+                <a href="@Url.Action("Products")">Постіль</a>
+            </div>
+            <div class="column_four">
+                <img class="four" src="~/Content/img/mainpage/5badroom/2.jpg" alt="50/100">
+                <a href="@Url.Action("Products")">Ковдри</a>
+            </div>
+            <div class="column_four">
+                <img class="four" src="~/Content/img/mainpage/5badroom/3.jpg" alt="75/100">
+                <a href="@Url.Action("Products")">Подушки</a>
+            </div>
+            <div class="column_four">
+                <img class="four" src="~/Content/img/mainpage/5badroom/4.jpg" alt="100/100">
+                <a href="@Url.Action("Products")">Пледи</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column_two">
+                <img class="two_1" src="~/Content/img/mainpage/5badroom/5.jpg" alt="50/50">
+                <a href="@Url.Action("Products")">Покривала</a>
+            </div>
+            <div class="column_two">
+                <img class="two_1" src="~/Content/img/mainpage/5badroom/6.jpg" alt="50/50">
+                <a href="@Url.Action("Products")">Наволочки</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column_four">
+                <img class="four" src="~/Content/img/mainpage/5badroom/7.jpg" alt="25/100">
+                <a href="@Url.Action("Products")">Простині</a>
+            </div>
+            <div class="column_four">
+                <img class="four" src="~/Content/img/mainpage/5badroom/8.jpg" alt="50/100">
+                <a href="@Url.Action("Products")">Підодіяльники</a>
+            </div>
+            <div class="column_four">
+                <img class="four" src="~/Content/img/mainpage/5badroom/9.jpg" alt="75/100">
+                <a href="@Url.Action("Products")">Наматрасники</a>
+            </div>
+            <div class="column_four">
+                <img class="four" src="~/Content/img/mainpage/5badroom/10.jpg" alt="100/100">
+                <a href="@Url.Action("Products")">Декоративні подушки</a>
+            </div>
+        </div>
+        <div class="heading"><h1><a name="bathroom">Ванна кімната</a></h1></div>
+        <div class="row">
+            <div class="column_four">
+                <img class="four" src="~/Content/img/mainpage/6bathroom/1.jpg" alt="25/100">
+                <a href="@Url.Action("Products")">Рушники</a>
+            </div>
+            <div class="column_four">
+                <img class="four" src="~/Content/img/mainpage/6bathroom/2.jpg" alt="50/100">
+                <a href="@Url.Action("Products")">Килими</a>
+            </div>
+            <div class="column_four">
+                <img class="four" src="~/Content/img/mainpage/6bathroom/3.jpg" alt="75/100">
+                <a href="@Url.Action("Products")">Аксесуари</a>
+            </div>
+            <div class="column_fours">
+                <img class="four" src="~/Content/img/mainpage/6bathroom/4.jpg" alt="100/100">
+                <a href="@Url.Action("Products")">Аксесуари для бані та сауни</a>
+            </div>
+        </div>
+        <div class="heading"><h1><a name="hotel">Готель</a></h1></div>
+        <div class="row">
+            <div class="column_four">
+                <img class="four" src="~/Content/img/mainpage/7hotel/1.jpg" alt="25/100">
+                <a href="@Url.Action("Products")">Постіль</a>
+            </div>
+            <div class="column_four">
+                <img class="four" src="~/Content/img/mainpage/7hotel/2.jpg" alt="50/100">
+                <a href="@Url.Action("Products")">Ковдри</a>
+            </div>
+            <div class="column_four">
+                <img class="four" src="~/Content/img/mainpage/7hotel/3.jpg" alt="75/100">
+                <a href="@Url.Action("Products")">Подушки</a>
+            </div>
+            <div class="column_four">
+                <img class="four" src="~/Content/img/mainpage/7hotel/4.jpg" alt="100/100">
+                <a href="@Url.Action("Products")">Пледи</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column_two">
+                <img class="two_1" src="~/Content/img/mainpage/7hotel/5.jpg" alt="50/50">
+                <a href="@Url.Action("Products")">Покривала</a>
+            </div>
+            <div class="column_two">
+                <img class="two_1" src="~/Content/img/mainpage/7hotel/6.jpg" alt="50/50">
+                <a href="@Url.Action("Products")">Наволочки</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column_four">
+                <img class="four" src="~/Content/img/mainpage/7hotel/7.jpg" alt="25/100">
+                <a href="@Url.Action("Products")">Простині</a>
+            </div>
+            <div class="column_four">
+                <img class="four" src="~/Content/img/mainpage/7hotel/8.jpg" alt="50/100">
+                <a href="@Url.Action("Products")">Підодіяльники</a>
+            </div>
+            <div class="column_four">
+                <img class="four" src="~/Content/img/mainpage/7hotel/9.jpg" alt="75/100">
+                <a href="@Url.Action("Products")">Наматрасники</a>
+            </div>
+            <div class="column_four">
+                <img class="four" src="~/Content/img/mainpage/7hotel/10.jpg" alt="100/100">
+                <a href="@Url.Action("Products")">Рушники</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column_three">
+                <img class="three" src="~/Content/img/mainpage/7hotel/11.jpg" alt="25/100">
+                <a href="@Url.Action("Products")">Халати</a>
+            </div>
+            <div class="column_three">
+                <img class="three" src="~/Content/img/mainpage/7hotel/12.jpg" alt="50/100">
+                <a href="@Url.Action("Products")">Капці</a>
+            </div>
+            <div class="column_three">
+                <img class="three" src="~/Content/img/mainpage/7hotel/13.jpg" alt="75/100">
+                <a href="@Url.Action("Products")">Килимки</a>
+            </div>
+        </div>
+        <div class="heading"><h1><a name="kitchen">Кухня</a></h1></div>
+        <div class="row">
+            <div class="column_four">
+                <img class="four" src="~/Content/img/mainpage/8kitchen/1.jpg" alt="25/100">
+                <a href="@Url.Action("Products")">Рушники</a>
+            </div>
+            <div class="column_four">
+                <img class="four" src="~/Content/img/mainpage/8kitchen/2.jpg" alt="50/100">
+                <a href="@Url.Action("Products")">Фартухи</a>
+            </div>
+            <div class="column_four">
+                <img class="four" src="~/Content/img/mainpage/8kitchen/3.jpg" alt="75/100">
+                <a href="@Url.Action("Products")">Скатертини</a>
+            </div>
+            <div class="column_fours">
+                <img class="four" src="~/Content/img/mainpage/8kitchen/4.jpg" alt="100/100">
+                <a href="@Url.Action("Products")">Тканинні серветки і раннери</a>
+            </div>
+        </div>
+        <div class="heading"><h1><a name="childroom">Дитяча спальня</a></h1></div>
+        <div class="row">
+            <div class="column_four">
+                <img class="four" src="~/Content/img/mainpage/9forchild/1.jpg" alt="25/100">
+                <a href="@Url.Action("Products")">Постіль</a>
+            </div>
+            <div class="column_four">
+                <img class="four" src="~/Content/img/mainpage/9forchild/2.jpg" alt="50/100">
+                <a href="@Url.Action("Products")">Ковдри</a>
+            </div>
+            <div class="column_four">
+                <img class="four" src="~/Content/img/mainpage/9forchild/3.jpg" alt="75/100">
+                <a href="@Url.Action("Products")">Подушки</a>
+            </div>
+            <div class="column_four">
+                <img class="four" src="~/Content/img/mainpage/9forchild/4.jpg" alt="100/100">
+                <a href="@Url.Action("Products")">Пледи</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column_two">
+                <img class="two_1" src="~/Content/img/mainpage/9forchild/5.jpg" alt="50/50">
+                <a href="@Url.Action("Products")">Покривала</a>
+            </div>
+            <div class="column_two">
+                <img class="two_1" src="~/Content/img/mainpage/9forchild/6.jpg" alt="50/50">
+                <a href="@Url.Action("Products")">Наволочки</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column_three">
+                <img class="three" src="~/Content/img/mainpage/9forchild/7.jpg" alt="25/100">
+                <a href="@Url.Action("Products")">Простині</a>
+            </div>
+            <div class="column_three">
+                <img class="three" src="~/Content/img/mainpage/9forchild/8.jpg" alt="50/100">
+                <a href="@Url.Action("Products")">Підодіяльники</a>
+            </div>
+            <div class="column_three">
+                <img class="three" src="~/Content/img/mainpage/9forchild/9.jpg" alt="75/100">
+                <a href="@Url.Action("Products")">Наматрасники</a>
+            </div>
+        </div>
+    </article>
+    <footer>
+        <label class="footer_main">Підписуйтесь на новини </label>
+        <hr for="mailInfo">
+        <div>
+            <a href="#"><label>Головна</label></a><br />
+            <a href="#"><label>Новини</label></a><br />
+            <a href="#"><label>Контактна форма</label></a>
+        </div>
+        <div>
+            <label class="footer_mains">Cлідкуй за нами</label><br />
+            <a class="footer_mains" href="https://www.facebook.com/"><i class="fab fa-facebook"></i></a>
+            <a class="footer_mains" href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+            <a class="footer_mains" href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a>
+        </div>
+    </footer>
+    <script src="~/Scripts/jquery.min.js"></script>
+    <script src="~/Scripts/vanillaSlideshow.min.js"></script>
+    <script src="~/Scripts/454d8be7f7.js"></script>
+    <script>
+        vanillaSlideshow.init({
+            slideshow: true,
+            delay: 5000,
+            arrows: true,
+            indicators: true,
+            random: false,
+            animationSpeed: '1s'
+        });</script>
+</body>
+</html>

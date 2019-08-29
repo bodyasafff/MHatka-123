@@ -1,0 +1,510 @@
+@import "fontawesome.min.css";
+
+body {
+    margin-left: -0.1%;
+    width: 100%;
+    background-color: #ffffff;
+    color: #333333;
+    font-family: 'Helvetica Neue', Arial, Helvetica, Geneva, sans-serif;
+    font-size: 12px;
+}
+
+.grid {
+    display: grid;
+    grid-column-gap: 5px;
+    grid-template-columns: 1.3fr 2fr 2fr;
+}
+
+
+.menu, .shop_card_img {
+    float: left;
+    min-height: 100%;
+}
+
+.menu {
+    margin-top: 130px;
+    float: left;
+    position: fixed;
+}
+
+.item_info {
+    min-height: 100%;
+}
+
+.item_info {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 6vh;
+    float: left;
+    position: fixed;
+}
+
+.item {
+    overflow: hidden;
+}
+
+.btn {
+    text-decoration: none;
+    display: block;
+    color: black;
+    position: relative;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+    border-bottom: 1px solid #e8e8e8;
+    background-color: white;
+}
+
+nav .menu a {
+    border-bottom: none;
+    display: block;
+}
+
+.smenu {
+    background: #333;
+    overflow: hidden;
+    transition: max-height 0.3s;
+    max-height: 0;
+}
+
+    .smenu button {
+        background-color: white;
+        outline: none;
+        text-decoration: none;
+        display: block;
+        padding: 1.2vh 3.6vh;
+        width: 100%;
+        color: black;
+        border: solid 0 white;
+        font-weight: normal;
+        position: relative;
+    }
+
+        .smenu button::before {
+            content: "";
+            position: absolute;
+            width: 0.84vh;
+            height: 100%;
+            background: rgb(5, 5, 5);
+            left: 0;
+            top: 0;
+            transition: 0.3s;
+            opacity: 0;
+        }
+
+a {
+    color: #333333;
+    text-decoration: underline;
+    padding-bottom: 1px;
+}
+
+.smenu button:hover::before {
+    opacity: 1;
+}
+
+.item:target .smenu {
+    max-height: 30em;
+}
+
+.mainTable {
+    text-align: center;
+}
+
+#main-bar {
+    width: 100%;
+    top: 0;
+    height: 115px;
+    font: 1.15em Arial;
+    background: #fff;
+    position: fixed;
+    overflow: hidden;
+}
+
+    #main-bar ul {
+        margin: 0;
+        padding: 0;
+    }
+
+    #main-bar .ico {
+        display: inline-block;
+        vertical-align: middle;
+        text-decoration: none;
+        border-bottom: none;
+        margin-top: 2vh;
+        margin-left: 5vh;
+    }
+
+    #main-bar .shopping_cart {
+        display: inline-block;
+        font-size: 11px;
+    }
+
+    #main-bar a {
+        text-decoration: none;
+        color: black;
+    }
+
+.nav-right {
+    margin-top: 5vh;
+    float: right;
+    margin-right: 8vh;
+}
+
+@media only screen and (max-width: 967px) and (min-width: 480px) {
+    #main-bar ul a {
+        max-height: 20px !important;
+    }
+}
+
+@media only screen and (max-width: 767px) and (min-width: 480px) {
+    #main-bar ul .ico {
+        text-align: center;
+        margin-bottom: 0 !important;
+    }
+}
+
+::-webkit-scrollbar {
+    width: 1px;
+    height: 1px;
+}
+
+@media (min-width:600px) and (max-width:757px) {
+    .menu {
+        position: relative;
+        display: block;
+        width: 150px;
+        overflow: hidden;
+        margin-top: 0;
+    }
+}
+
+@media (min-width:758px) and (max-width:958px) {
+    .menu {
+        position: relative;
+        display: block;
+        width: 220px;
+        overflow: hidden;
+        margin-top: 0;
+    }
+}
+
+@media (max-width:959px) {
+    #main-bar {
+        position: relative;
+    }
+
+    .menu {
+        margin-top: 0;
+        position: relative;
+        display: block;
+        width: 100%;
+        overflow: hidden;
+    }
+}
+
+@media only screen and (max-width: 959px) and (min-width: 58px) {
+    #main-bar .ico {
+        justify-items: center;
+    }
+
+    .shop_card_img, .item_info {
+        justify-items: center;
+    }
+
+    .shop_card_img, .item_info {
+        margin-left: 45vh;
+        margin-right: 35vh;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .shop_card_img img {
+        width: 316px;
+        height: 100%;
+    }
+
+    .item_info {
+        width: 316px;
+        height: 250px;
+        position: relative;
+    }
+}
+
+::-webkit-scrollbar-button {
+    background-color: #ffffff;
+}
+
+::-webkit-scrollbar-thumb {
+    height: 1px;
+    background-color: #ffffff;
+    border-left: 1px solid transparent;
+    background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb {
+    height: 1px;
+    background-color: white;
+    border: 1px solid transparent;
+    background-clip: content-box;
+}
+
+::-webkit-scrollbar-track-piece {
+    background-color: rgb(255, 255, 255);
+}
+
+::-webkit-scrollbar-track-piece {
+    background-color: #ffffff;
+}
+
+.shop_card_img {
+    margin-top: 110px;
+    display: inline-block;
+    overflow-y: scroll;
+    max-width: 82.6vh;
+}
+
+    .shop_card_img img {
+        cursor: zoom-in;
+    }
+
+        .shop_card_img img[tabindex="0"]:focus {
+            text-decoration: none;
+            position: fixed;
+            z-index: 10;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            width: auto;
+            height: auto;
+            max-width: 99%;
+            max-height: 99%;
+            margin: auto;
+            box-shadow: 0 0 20px #000, 0 0 0 1000px rgba(210,210,210,.4);
+        }
+
+            .shop_card_img img[tabindex="0"]:focus, .shop_card_img img[tabindex="0"]:focus ~ * {
+                pointer-events: none;
+                cursor: zoom-out;
+            }
+
+.name_product {
+    font-size: 3.6vh;
+    left: 0;
+    margin-left: 3vh;
+    color: #303030;
+}
+
+.price_product {
+    font-size: 3.6vh;
+    margin-left: 3vh;
+    color: #303030;
+}
+/*=============================*/
+/* ===== Actual Styles ===== */
+
+/* ===== Horizontal Rule ===== */
+.rule {
+    margin: 5px;
+    border: none;
+    height: 2px;
+    background-image: linear-gradient(left, #f0f0f0, #c9bbae, #f0f0f0);
+}
+
+/* ===== Select Box ===== */
+.sel {
+    font-size: 0.5em;
+    display: inline-block;
+    margin: 3em;
+    width: 60vh;
+    background-color: transparent;
+    position: relative;
+    cursor: pointer;
+}
+
+    .sel::before {
+        position: absolute;
+        content: '\f063';
+        font-family: 'FontAwesome', serif;
+        font-size: 2em;
+        color: #FFF;
+        right: 20px;
+        top: calc(50% - 0.5em);
+    }
+
+    .sel.active::before {
+        transform: rotateX(-180deg);
+    }
+
+    .sel select {
+        background: none;
+        border-style: none;
+        display: none;
+    }
+
+.sel__placeholder {
+    display: block;
+    font-family: 'Quicksand', serif;
+    font-size: 2.3em;
+    color: #838e95;
+    padding: 0.2em 0.5em;
+    text-align: left;
+    pointer-events: none;
+    user-select: none;
+    visibility: visible;
+}
+
+.sel.active .sel__placeholder {
+    visibility: hidden;
+}
+
+.sel__placeholder::before {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0.2em 0.5em;
+    content: attr(data-placeholder);
+    visibility: hidden;
+}
+
+.sel.active .sel__placeholder::before {
+    visibility: visible;
+}
+
+.sel__box {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: -4px;
+    display: none;
+    list-style-type: none;
+    text-align: left;
+    font-size: 1em;
+    background-color: #FFF;
+    width: calc(100% + 8px);
+    box-sizing: border-box;
+}
+
+.sel.active .sel__box {
+    display: block;
+    animation: fadeInUp 500ms;
+}
+
+.sel__box__options {
+    display: list-item;
+    font-family: 'Quicksand', serif;
+    font-size: 1.5em;
+    color: #303030;
+    padding: 0.5em 1em;
+    user-select: none;
+}
+
+    .sel__box__options::after {
+        background-color: #ebedef;
+        content: '\f00c';
+        font-family: 'FontAwesome', serif;
+        font-size: 0.5em;
+        margin-left: 5px;
+        display: none;
+    }
+
+    .sel__box__options.selected::after {
+        display: inline;
+    }
+
+    .sel__box__options:hover {
+        background-color: #ebedef;
+    }
+
+/* ----- Select Box Black Panther ----- */
+.sel {
+    border-bottom: 3px solid black;
+}
+
+/*.sel--black-panther {*/
+/*	z-index: 3;*/
+/*}*/
+
+/* ----- Select Box Superman ----- */
+.sel--superman {
+    /*   display: none; */
+    z-index: 3;
+}
+
+/* ===== Keyframes ===== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 20px, 0);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+.button {
+    width: 25vh;
+    height: 6.16vh;
+    text-align: center;
+    bottom: 2.84vh;
+    left: 4%;
+    display: inline-block;
+    margin-left: 4vh;
+    padding: 1.68vh 2.24vh;
+    border: 0;
+    background-color: black;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.79vh;
+    line-height: 1.7;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    cursor: pointer;
+    outline: none;
+}
+
+.item_text {
+    font-size: 2vh;
+    bottom: 9.8vh;
+    left: 0;
+    padding: 4.2vh;
+}
+
+.alert {
+    padding: 2.8vh;
+    margin: 1.6vh 0;
+    border: 1px solid #ccc;
+    background-color: #eee;
+    transition: opacity 400ms ease-in-out;
+    opacity: 0;
+}
+/*Font Awesome v4.7.0 by @davegandy - http://fontawesome.io - @fontawesome*/
+/*License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)*/
+
+@font-face {
+    font-family: 'FontAwesome';
+    src: url('//use.fontawesome.com/releases/v4.7.0/fonts/fontawesome-webfont.eot');
+    src: url('//use.fontawesome.com/releases/v4.7.0/fonts/fontawesome-webfont.eot?#iefix') format('embedded-opentype'), url('//use.fontawesome.com/releases/v4.7.0/fonts/fontawesome-webfont.woff2') format('woff2'), url('//use.fontawesome.com/releases/v4.7.0/fonts/fontawesome-webfont.woff') format('woff'), url('//use.fontawesome.com/releases/v4.7.0/fonts/fontawesome-webfont.ttf') format('truetype'), url('//use.fontawesome.com/releases/v4.7.0/fonts/fontawesome-webfont.svg#fontawesomeregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+/*
+Embed code 95734c96ec
+*/

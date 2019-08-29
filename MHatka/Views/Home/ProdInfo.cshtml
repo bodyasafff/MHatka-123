@@ -1,0 +1,59 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="~/Content/fontawesome.min.css" rel="stylesheet" />
+    <link href="~/Content/ProdInfoStyle.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/95734c96ec.css">
+    <title>Модна хатка</title>
+</head>
+<body>
+    <header>
+        <nav id="main-bar">
+            <ul>
+                <a class="ico" href="@Url.Action("Index")"><img src="~/Content/images/ModnaXatkav3.png" alt="ico" style="width: 125px; height: 125px;margin-top: -1vh;"></a>
+                <div class="nav-right">
+                    <a href="@Url.Action("Basket")" class="shopping_cart">Мій Кошик<span></span></a><img src="~/Content/images/shopping-cart.png" alt="shopping_cart" style="width: 24px; height: 24px;margin-top: -1vh;">
+                </div>
+            </ul>
+        </nav>
+    </header>
+    <div class=grid>
+        <div class=grid__column>
+            <nav>
+                <div class="menu" id="menu">
+                </div>
+            </nav>
+        </div>
+        <div class=grid__column>
+            <div class="shop_card_img" id="massPhoto">
+            </div>
+        </div>
+        <div class=grid__column>
+            <div class="item_info">
+                <p class="name_product" id="prodName"></p>
+                <a class="price_product" id="prodPrice"></a><br>
+                <hr class="rule">
+                <div class="sel sel--superman">
+                    <label for="select-superpower">
+                        <select name="select-superpower" id="select-superpower">
+                            <option value="">Виберіть розмір</option>
+                        </select>
+                    </label>
+                </div>
+                <div class="item_text" id="txtDescription">
+                </div>
+                <button class="button" id="addToBasket">Додати до корзини</button>
+            </div>
+        </div>
+    </div>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/ProdInfoscript.js"></script>
+</body>
+</html>
+
+

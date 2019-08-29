@@ -1,0 +1,257 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="~/Areas/Admin/Content/AdminMainStyle.css" rel="stylesheet" />
+    <link href="~/Areas/Admin/Content/schedule-style.css" rel="stylesheet" />
+    <link href="~/Areas/Admin/Content/products.css" rel="stylesheet" />
+
+    <title>Графік</title>
+</head>
+<body>
+    <!-- Вертикальний список сторінок -->
+    <section id="vertical-tabs">
+        <div class="tab">
+            <button class="tablinks" onclick="openCity(event, 'Home')" id="defaultOpen">
+                <img src="~/Areas/Admin/Content/img/TabIcons/home.png" id="homeIcon" alt="">
+            </button>
+            <button class="tablinks" onclick="openCity(event, 'Charts')" id="chartPage">
+                <img src="~/Areas/Admin/Content/img/TabIcons/chart.png" id="chartIcon" alt="">
+            </button>
+            <button class="tablinks" onclick="openCity(event, 'Documents')" id="documentPage">
+                <img src="~/Areas/Admin/Content/img/TabIcons/documents.png" id="documentIcon" alt="">
+            </button>
+            <button class="tablinks" onclick="openCity(event, 'Products')" id="productsPage">
+                <img src="~/Areas/Admin/Content/img/TabIcons/products.png" id="productIcon" alt="">
+            </button>
+            <button class="tablinks" onclick="openCity(event, 'Settings')" id="settingsPage">
+                <img src="~/Areas/Admin/Content/img/TabIcons/options-horizontal-outline.png" id="settingIcon" alt="">
+            </button>
+        </div>
+        <script type="text/javascript">
+            window.onload = function () {
+                startTab();
+            };</script>
+        <!---------------------- Профіль та пошук ----------------------->
+    </section>
+    <div class="profile-box">
+        <img src="Areas/Admin/Content/img/sanyok.jpg" alt="Avatar" class="avatar">
+        <a class="profile-name">Привіт, Саньок</a>
+    </div>
+    <!-- !!!Важливо!!!Потрібно замінити на дію пошуку action="action_page.php"!!! -->
+    <form class="search-box">
+        <button type="submit"></button>
+        <label>
+            <input type="text" name="search" placeholder="Пошук...">
+        </label>
+    </form>
+    <section></section>
+    <div id="Home" class="tabcontent">
+        <h3>Home</h3>
+    </div>
+    <div id="Charts" class="tabcontent">
+        <h3>Chart</h3>
+        <p>Paris is the capital of France.</p>
+    </div>
+    <div id="Documents" class="tabcontent">
+        <h3>Documents</h3>
+        <p>Tokyo is the capital of Japan.</p>
+    </div>
+    <!---------------------------------------- Сторінка товару -------------------------------------->
+    <div id="Products" class="tabcontent">
+        <!-- Категорії товарів -->
+        <section id="buttons">
+            <div class="categories" id="categories">
+                <!--<button class="categoryLinks" onclick="openCategory(event, 'All')" id="AllCategories">Всі</button>-->
+                <!--<button class="categorylinks" onclick="opencategory(event, 'badroom')" id="badroom">спальня та гостинна</button>
+                <button class="categorylinks" onclick="opencategory(event, 'bathroom')" id="bathroom">ванна кімната</button>
+                <button class="categorylinks" onclick="opencategory(event, 'hoteltextil')" id="hoteltextil">готельний текстиль</button>
+                <button class="categorylinks" onclick="opencategory(event, 'kithentextil')" id="kithentextil">кухонний текстиль</button>
+                <button class="categorylinks" onclick="opencategory(event, 'chilrenroom')" id="childrenroom">дитяча кімната</button>-->
+                <!--<button class="categoryLinks" onclick="openCategory(event, 'Cloth')" id="cloth">Тканина</button>-->
+            </div>
+
+            <div id="SelGroupBtns">
+
+            </div>
+        </section>
+        <section id="productsTable">
+            <!--------------------------- Таблиця з товарами -->
+            <div class="productsGrid">
+                <table id="productsInfo"></table>
+            </div>
+
+            <div class="productInfo">
+                <!--------------------------- Фотографії товару -->
+                <div class="prod_photo_price">
+                    <div class="productPhotos">
+                        <div class="mainPhoto" id="prodInfoPhotoo">
+                        </div>
+                        <h5>Рекомендований розмір фото 895 х 1145px</h5>
+
+                    </div>
+                    <!-------------------------- Коротка інформація товару -->
+                    <div class="productShortInfo">
+                        <div class="txtb">
+                            <label for="txt_minName">Назва</label><input type="text" id="txt_minName">
+                        </div>
+                        <div class="txtb">
+                            <label for="txt_minPrice">Ціна</label><input type="text" id="txt_minPrice">
+                        </div>
+                        <div class="txtb">
+                            <label for="txt_minSize">Розмір</label><input type="text" id="txt_minSize">
+                        </div>
+                        <button id="addSizePrice">Додати Розмір</button>
+                        <!----------------------------------------------------->
+                    </div>
+                </div>
+                <div class="product_name">
+
+                    <div class="productInStockAndPrice">
+                        <div class="InStock">
+                            <div class="txtb">
+                                <label for="txt_minDescription">Опис</label><input type="text" id="txt_minDescription" style="width:100%;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--------------------------------------------Кнопка Видалити, Більше та Редагувати -->
+                <div class="buttonsDeleteAndAbout">
+                    <button class="deleteProduct" id="BtnDeleteProduct">Видалити</button>
+                    <button class="tablinks" onclick="openCity(event, 'AboutItem')" id="aboutProduct">Більше</button>
+                    <button class="edit" id="editProduct">Редагувати</button>
+                </div>
+            </div>
+        </section>
+        <div id="pagination" class="nuvPagination"></div>
+    </div>
+
+    <!------------------------------- РОЗШИРЕНА ІНФОРМАЦІЯ ПРО ТОВАР ------------------------->
+    <div id="AboutItem" class="tabcontent">
+        @using (Html.BeginForm("UploadImage", "Admin", FormMethod.Post, new { @style = "display:none",@id= "uploadForm" }))
+        {
+            <input type = "file" name = "image" id = "image" />
+             <button id = "saveClick" onclick = "uploadImage()" ></button>
+        }
+
+        @*<form style="display:none" action="http://localhost:51465/Admin/UploadImage"
+            method="post"
+            id="uploadForm"
+            enctype="multipart/form-data"></form>*@
+        <!------------------------------ Фото --------------------------->
+        <section id="photos">
+            <div class="productPhotos" id="divPhoto">
+                <div class="mainPhoto" id="0Photo">
+                    <button value="0">+</button>
+                </div>
+                <div class="additionalPhotos" id="image">
+                    <div id="1Photo"><button value="1">+</button></div>
+                    <div id="2Photo"><button value="2">+</button></div>
+                    <div id="3Photo"><button value="3">+</button></div>
+                    <div class="last" id="4Photo"><button value="4">+</button></div>
+                </div>
+            </div>
+            <div class="txtbb" style="margin-top: 2.8vh;">
+                <label for="txt_Description">Опис</label><br />
+                <textarea data-placeholder="Опис" id="txt_Description" rows='20' style="width: 100%; background-color: white; color: #000; border-radius: 4px; height: 30vh;text-decoration: none;border: none; "></textarea>
+            </div>
+        </section>
+        <!-----------------------------Інформація------------------------->
+        <section id="info">
+            <div class="txtb">
+                <label for="txt_Name">Назва</label><br>
+                <input type="text" id="txt_Name">
+            </div>
+            <div class="txtbh">
+                <label for="txt_Groups">Групи</label><br>
+                <select style="width: 46%;height: 5vh;" id="txt_Groups"></select>
+            </div>
+            <div class="groupAndBrand">
+                <label for="sel_Sizeer" style="display:none; ">Продаваний розмір</label><br>
+                <select id="sel_Sizeer" style="display:none; width: 46%;height: 5vh;"></select>
+                <button id="btnDeleteSize" style="display:none; width: 10vh; height: 5vh;background-color: #b464f7; color: white;text-align: center; text-decoration: none;  margin-left: auto; margin-right: auto; border-radius: 10px;">Видалити Розмір</button>
+                <div class="group">
+                    <div class="txtb" id="activeSize" style="margin-right: 50px; display:none">
+                        <label for="txt_Size">Розмір</label><br>
+                        <input type="text" id="txt_Size">
+                    </div>
+                </div>
+                <div class="brand">
+                    <div class="txtb" id="activePrice" style="display:none">
+                        <label for="txt_Price">Ціна</label><br>
+                        <input type="text" id="txt_Price">
+                    </div>
+                </div>
+            </div>
+            <div class="txtb">
+                <label for="txt_Brend">Бренд</label><br>
+                <input type="text" id="txt_Brend">
+            </div>
+            <div class="txtb">
+                <label for="txt_Special">Особливість</label><br>
+                <input type="text" id="txt_Special">
+            </div>
+            <div class="txtb" style="">
+                <label for="txt_Country">Країна</label><br>
+                <input type="text" id="txt_Country">
+            </div>
+            <div class="txtb" style="">
+                <label for="txt_Filler">Наповнювач</label><br>
+                <input type="text" id="txt_Filler">
+            </div>
+            <div class="groupAndBrand">
+                <div class="group">
+                    <div class="txtb" style="">
+                        <label for="txt_Article">Артикул</label><br>
+                        <input type="text" id="txt_Article">
+                    </div>
+                </div>
+                <div class="brand">
+                    <div class="txtb" style="margin-left: 7vh;">
+                        <label for="txt_Material">Матеріал</label><br>
+                        <input type="text" id="txt_Material">
+                    </div>
+                </div>
+            </div>
+            <div class="txtb" style="">
+                <label for="txt_TypeCloth">Тип</label><br>
+                <input type="text" id="txt_TypeCloth">
+            </div>
+        </section>
+        <div class="footerAbout">
+            <button class="tablinks" onclick="openCity(event, 'Products')" id="productsPage"> &#8592 Назад</button>
+            <div class="unactiveAE">
+                <button class="saveProduct" id="addPtod">Зберегти</button>
+                <button class="saveProduct" id="editPtod">Редагувати</button>
+            </div>
+        </div>
+    </div>
+    <!--------------------------------------- НАСТРОЙКИ -------------------------------->
+    <div id="Settings" class="tabcontent">
+        <h3>Settings</h3>
+        <p>Tokyo is the capital of Japan.</p>
+    </div>
+    <section></section>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Areas/Admin/Scripts/vertical-tab.js"></script>
+    <script src="~/Areas/Admin/Scripts/jquery.form.js"></script>
+    <script src="~/Areas/Admin/Scripts/FillTable.js"></script>
+    <script type="text/javascript">
+        $(".txtb input").on("focus", function () {
+            $(this).addClass("focus");
+        });
+
+        $(".txtb input").on("blur", function () {
+            if ($(this).val() == "")
+                $(this).removeClass("focus");
+        });</script>
+    <script type="text/javascript">openCity()</script>
+</body>
+</html>

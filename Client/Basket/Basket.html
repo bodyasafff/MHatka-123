@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Кошик</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="css/sweetalert.css" rel="stylesheet" />
+</head>
+<header>
+    <nav id="main-bar">
+        <ul>
+            <a class="ico" href="../mainwindow/index.html"><img src="img/ModnaXatkav3.png" alt="ico" style="width: 125px; height: 125px;margin-top: -1vh;"></a>
+                <!--                <a href="#" class="shopping_cart"><img src="img/shopping-cart-black.png" alt="shopping_cart" style="width: 24px; height: 24px;"></a>-->
+            <!--            </div>-->
+        </ul>
+    </nav>
+    <h3 style="text-align: center; font-size: 4vh;">Мій кошик</h3>
+</header>
+<body>
+    <main>
+        <div class="basket" id="Basket">
+            <!--<div class="basket-product">
+                <div class="item">
+                    <div class="product-image">
+                        <img src="img/asset-6.png" style="width: 18vh;height: 24vh;" alt="Image 2" class="product-frame">
+                    </div>
+                    <div class="product-details">
+                        <h1><strong> DUVET COVER WITH LACE BORDER</strong></h1>
+                        <p>
+                            Plain white duvet cover in 200 thread count cotton percale with placement
+                            embroidered beige thread border. Concealed button fastening at the bottom.
+                        </p>
+                        <p><strong>Product Code - 232321939</strong></p>
+                    </div>
+                </div>
+                <div class="price">5600.00</div>
+                <div class="quantity">
+                    <input type="number" value="1" min="1" class="quantity-field">
+                </div>
+                <div class="subtotal">5600.00</div>
+                <div class="remove">
+                    <button>Видалити замовлення</button>
+                </div>
+            </div>-->
+        </div>
+        <aside>
+            <div class="summary">
+                <div class="summary-total-items"><span class="total-items" id="totalItem"></span> Продукти у вашому кошику</div>
+                <div class="summary-subtotal">
+                    <div class="summary-registration">
+
+                        <label for="name-surname">Ім'я та призище</label><input id="txtName" type="text" name="name-surname" pattern="^[( )a-zA-Z]+$" required><br>
+                        <label for="city">Місто</label><input id="txtCity" type="text" name="city" maxlength="15"><br>
+                        <label for="phone-number">Номер телефону</label><input id="txtPhone" type="text" name="phone-number" maxlength="13" placeholder="+380xxxxxxxxx" pattern="^\+?(?:[0-9]??).{5,14}[0-9]$" required><br>
+                    </div>
+                    <div class="summary-promo hide">
+                        <div class="promo-title">Promotion</div>
+                        <div class="promo-value final-value" id="basket-promo"></div>
+                    </div>
+                </div>
+                <div class="summary-delivery">
+                    <select id="selDeliveryMethod" name="delivery-collection" class="summary-delivery-selection">
+                        <option value="0" selected="selected">Виберіть спосіб доставки</option>
+                        <option value="Нова пошта">Нова пошта</option>
+                        <option value="УКРПОШТА">УКРПОШТА</option>
+                        <option value="Royal Mail">Royal Mail</option>
+                        <option value="US Mail Delivery">US Mail Delivery</option>
+                    </select>
+                </div>
+                <div class="summary-total">
+                    <div class="total-title">Півдсумок</div>
+                    <div class="total-value final-value" id="basket-total"></div>
+                </div>
+                <div class="summary-checkout">
+                    <button class="checkout-cta" id="SendEmail">Оформити замовлення</button>
+                </div>
+            </div>
+        </aside>
+    </main>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/sweetalert.min.js"></script>
+    <!--<script src="js/styles.js"></script>-->
+</body>
+</html>

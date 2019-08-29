@@ -1,0 +1,305 @@
+/* Головний стиль кнопки */
+.categories button {
+    background-color: #ffffff;
+    text-align: center;
+    height: 3.5vh;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    margin-right: 2vh;
+    margin-top: 2vh;
+    padding-left: 2vh;
+    padding-right: 2vh;
+    transition: 0.3s;
+    border-radius: 2vh;
+    font-size: 1.68vh;
+    font-weight: bold;
+}
+
+.active {
+    background-color: lightslategrey;
+  
+}
+
+.activeBtn {
+    display: block !important;
+}
+
+#addSizePrice {
+    margin-top: 3vh;
+    width: 40vh;
+    height: 6vh;
+    background-color: #b464f7;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 1.4vh;
+}
+/* Change background color of buttons on hover */
+.categories button:hover {
+    box-shadow: 0 40.56vh 5.6vh 0 rgba(0, 0, 0, 0.2), 0 0.714vh 5.6vh 0 rgba(0, 0, 0, 0.19);
+}
+
+/* Create an active/current "tab button" class */
+.categories button.active {
+    background-color: hsl(208, 91%, 67%);
+    box-shadow: 0 0.56vh 5.6vh 0 rgba(0, 0, 0, 0.2), 0 0.714vh 5.6vh 0 rgba(0, 0, 0, 0.19);
+}
+/* Головний стиль кнопок підкатегорії*/
+.subcategories {
+    position: absolute;
+}
+
+    .subcategories button {
+        background-color: #ffffff;
+        text-align: center;
+        height: 3.5vh;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        margin-right: 2vh;
+        margin-top: 2vh;
+        padding-left: 2vh;
+        padding-right: 2vh;
+        transition: 0.3s;
+        border-radius: 2vh;
+        font-size: 1.68vh;
+        font-weight: normal;
+    }
+        /* Change background color of buttons on hover */
+        .subcategories button:hover {
+            box-shadow: 0 0.56vh 5.6vh 0 rgba(0, 0, 0, 0.2), 0 0.714vh 5.6vh 0 rgba(0, 0, 0, 0.19);
+        }
+
+        /* Create an active/current "tab button" class */
+        .subcategories button.active {
+            background-color: #5DB0F7;
+            box-shadow: 0 0.56vh 5.6vh 0 rgba(0, 0, 0, 0.2), 0 0.714vh 5.6vh 0 rgba(0, 0, 0, 0.19);
+        }
+
+/* Products grid and info */
+
+#productsTable {
+    display: block;
+}
+
+.productsGrid {
+    top: 25vh;
+    bottom: 12vh;
+    position: absolute;
+    background: #ffffff;
+    width: 95vh;
+    overflow-y: auto;
+    border-radius: 4px;
+}
+/* Product photos */
+
+.productInfo {
+    background-color: transparent;
+    top: 25vh;
+    bottom: 7vh;
+    right: 7vh;
+    width: 66vh;
+    position: absolute;
+    border-radius: 2.8vh;
+}
+
+.productPhotos div {
+    display: inline-block;
+}
+
+.mainPhoto {
+    display: block;
+    position: relative;
+    background: #ffffff;
+    height: 30vh;
+    width: 30vh;
+    border-radius: 10px;
+}
+
+    .mainPhoto button {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border: none;
+        background: none;
+        font-size: 8.4vh;
+        cursor: pointer;
+    }
+
+.additionalPhotos div {
+    display: block;
+    position: relative;
+    margin-bottom: 1.28vh;
+    margin-left: 2.8vh;
+    background: #ffffff;
+    height: 6vh;
+    width: 6vh;
+    border-radius: 4px;
+}
+
+    .additionalPhotos div button {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border: none;
+        background: none;
+        font-size: 3.5vh;
+        cursor: pointer;
+    }
+
+.prod_photo_price {
+    display: grid;
+    grid-column-gap: 5px;
+    grid-template-columns: 1.3fr 1.7fr;
+}
+/* product short info */
+.productPhotos h5 {
+    margin-top: 0;
+    color: #bdbdbd;
+    font-weight: lighter;
+    font-size: 1.65vh;
+}
+
+.productShortInfo label, input {
+    color: #bdbdbd;
+}
+
+.product_name {
+    margin-top: 0;
+    color: #bdbdbd;
+    font-weight: lighter;
+}
+
+.productInStockAndPrice div {
+    display: inline-block;
+    margin-top: 1vh;
+}
+
+.productInStockAndPrice .InStock div {
+    margin-right: 7.28vh;
+}
+
+/* Кнопки Видалити та Більше */
+.buttonsDeleteAndAbout {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1.4vh;
+}
+
+    .buttonsDeleteAndAbout button {
+        width: 20vh;
+        height: 7.5vh;
+        border-radius: 1.4vh;
+        border: none;
+        font-weight: bold;
+        margin-top: 5.6vh;
+        cursor: pointer;
+    }
+
+.deleteProduct {
+    background: rgb(235, 60, 60);
+    font-size: 2.8vh;
+    color: #ffffff;
+}
+
+    .deleteProduct:hover {
+        box-shadow: 0 0.56vh 5.6vh 0 rgb(235, 60, 60), 0 0.714vh 5.6vh 0 rgb(235, 60, 60);
+    }
+
+    .deleteProduct:active {
+        transform: translateY(0.56vh);
+    }
+
+#aboutProduct {
+    background: hsl(208, 91%, 67%);
+    font-size: 2.8vh;
+    color: #ffffff;
+}
+
+    #aboutProduct:hover {
+        box-shadow: 0 0.56vh 5.6vh 0 hsl(208, 91%, 67%), 0 0.714vh 5.6vh 0 hsl(208, 91%, 67%);
+    }
+
+    #aboutProduct:active {
+        transform: translateY(0.56vh);
+    }
+
+#editProduct {
+    background: hsl(0, 0%, 24%);
+    font-size: 2.8vh;
+    color: #ffffff;
+}
+
+    #editProduct:hover {
+        box-shadow: 0 0.56vh 5.6vh 0 hsl(0, 0%, 24%), 0 0.714vh 5.6vh 0 hsl(0, 0%, 51%);
+    }
+
+    #editProduct:active {
+        transform: translateY(0.56vh);
+    }
+
+
+/*------------------------------- About Product -------------------------*/
+.AboutItem {
+    display: block;
+}
+
+.footerAbout {
+    position: absolute;
+    bottom: 0;
+    height: 14vh;
+    width: 88%;
+}
+
+    .footerAbout #productsPage {
+        position: relative;
+        left: 0;
+        top: 30%;
+        transform: translate(0, -50%);
+        font-size: 2.1vh;
+        background: none;
+        border: none;
+    }
+
+.saveProduct {
+    background: hsl(208, 91%, 67%);
+    font-size: 2.8vh;
+    color: #ffffff;
+    width: 27.3vh;
+    height: 7.7vh;
+    border-radius: 1.4vh;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+    .saveProduct:hover {
+        box-shadow: 0 0.56vh 5.6vh 0 hsl(208, 91%, 67%), 0 0.714vh 5.6vh 0 hsl(208, 91%, 67%);
+    }
+
+.footerAbout .saveProduct {
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%)
+}
+
+#AboutItem section {
+    display: inline-block;
+}
+
+#info {
+    position: absolute;
+    margin-left: 7vh;
+    margin-top: -5.6vh;
+}
+
+.groupAndBrand div {
+    display: inline-block;
+    margin-top: 4.26vh;
+}

@@ -1,0 +1,321 @@
+/* Вертильний список сторінок */
+* {
+    box-sizing: border-box
+}
+
+html {
+    min-height: 100%; /* make sure it is at least as tall as the viewport */
+    position: relative;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(120deg, #3498db, #8e44ad);
+}
+/*Style selectbox*/
+
+option {
+    border-bottom: 1px solid #eaeaea;
+    border-left: 3px solid white;
+}
+
+
+/* Style the tab */
+.tab {
+    position: absolute;
+    float: left;
+    width: 70px !important;
+    height: 100vh;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+    /* Style the buttons that are used to open the tab content */
+    .tab button {
+        display: block;
+        background-color: transparent;
+        text-align: center;
+        height: 35px;
+        width: 35px;
+        margin-left: 18px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .tab #defaultOpen {
+        position: absolute;
+        top: 36px;
+        padding: 0;
+    }
+
+        .tab #defaultOpen img {
+            margin: 0;
+            background-size: cover;
+        }
+
+        .tab #defaultOpen.active img {
+            margin-left: 2.5px;
+            margin-top: 4px;
+            height: 35px;
+            width: 35px;
+        }
+
+    .tab #chartPage {
+        position: absolute;
+        top: 165px;
+        padding: 0;
+    }
+
+        .tab #chartPage img {
+            margin-left: -5px;
+            background-size: cover;
+        }
+
+        .tab #chartPage.active img {
+            margin-left: 2px;
+            margin-top: 3px;
+            height: 35px;
+            width: 35px;
+        }
+
+    .tab #documentPage {
+        position: absolute;
+        top: 247px;
+        padding-left: 5px;
+        padding-top: 0px;
+    }
+
+        .tab #documentPage img {
+            margin-left: -5px;
+            background-size: cover;
+        }
+
+        .tab #documentPage.active img {
+            margin-left: 2px;
+            margin-top: 3px;
+            height: 35px;
+            width: 35px;
+        }
+
+    .tab #productsPage {
+        position: absolute;
+        top: 329px;
+        padding: 0;
+    }
+
+    .tab #productPage img {
+        margin-left: -5px;
+        background-size: cover;
+    }
+
+    .tab #productPage.active img {
+        margin-left: 2px;
+        margin-top: 3px;
+        height: 35px;
+        width: 35px;
+    }
+
+    .tab #settingsPage {
+        position: absolute;
+        bottom: 10px;
+    }
+
+        .tab #settingsPage img {
+            margin-left: -5px;
+            background-size: cover;
+        }
+
+        .tab #settingsPage.active img {
+            margin-left: 2px;
+            margin-top: 3px;
+            height: 35px;
+            width: 35px;
+        }
+
+    /* Change background color of buttons on hover */
+    .tab button:hover {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    /* Create an active/current "tab button" class */
+    .tab button.active {
+        height: 50px;
+        width: 50px;
+        margin-left: 10px;
+        border-radius: 12px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+/* Style the tab content */
+.tabcontent {
+    height: 100vh;
+    padding: 9vh 13vh !important;
+    width: auto;
+    border-left: none;
+}
+
+/* Бокс облікового запису */
+.profile-box {
+    position: absolute;
+    font-size: 2.8vh;
+    width: 42vh;
+    height: 9.1vh;
+    top: 3.9vh;
+    left: 17.9vh;
+}
+
+.profile-name {
+    position: relative;
+    top: 0.7vh;
+    left: 2.8vh;
+}
+
+.avatar {
+    vertical-align: middle;
+    background-color: #ffffff;
+    width: 7vh;
+    height: 8vh;
+    border-radius: 50%;
+    box-shadow: 0 0.56vh 1.12vh 0 rgba(0, 0, 0, 0.2), 0 0.56vh 1.12vh 0 rgba(0, 0, 0, 0.19);
+}
+
+/* Пошуковий бокс */
+.search-box {
+    position: relative;
+    background: #f1f1f1;
+    top: 36px;
+    right: 29px;
+    float: right;
+    border-radius: 25px;
+    box-shadow: 0 0.56vh 1.12vh 0 rgba(0, 0, 0, 0.2), 0 0.56vh 1.12vh 0 rgba(0, 0, 0, 0.19);
+}
+
+/* Style the search field */
+form.search-box input[type=text] {
+    height: 6.32vh;
+    font-size: 2.3vh;
+    float: right;
+    width: 32.2vh;
+    background: transparent;
+    outline: none;
+    border: none;
+}
+/* Style the submit button */
+form.search-box button {
+    height: 3.51vh;
+    width: 3.51vh;
+    margin: 1.4vh 2.1vh 1.4vh 2.1vh;
+    background: transparent;
+    background-image: url("../img/magnifying-glass.png");
+    float: left;
+    cursor: pointer;
+    border: none;
+}
+
+    form.search-box button:hover {
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+/* Clear floats */
+form.search-box::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+#productsInfo tr {
+    display: block;
+    height: 10vh;
+    width: 92vh;
+    border-bottom: solid 1px black;
+}
+
+
+.item {
+    overflow: hidden;
+}
+
+.btn {
+    display: block;
+    padding: 2.24vh 2.8vh;
+    background: white;
+    color: black;
+    position: relative;
+    font-weight: bold;
+    text-align: center;
+    border-bottom: solid 0.5vh black;
+}
+
+.smenu {
+    background: #333;
+    overflow: hidden;
+    transition: max-height 0.3s;
+    max-height: 0;
+}
+
+    .smenu button {
+        display: block;
+        padding: 2.24vh 3.64vh;
+        width: 100%;
+        color: black;
+        background-color: white;
+        border: solid 0 white;
+        font-size: 2vh;
+        position: relative;
+    }
+
+        .smenu button::before {
+            content: "";
+            position: absolute;
+            width: 0.92vh;
+            height: 100%;
+            background: rgb(5, 5, 5);
+            left: 0;
+            top: 0;
+            transition: 0.3s;
+            opacity: 0;
+        }
+
+        .smenu button:hover::before {
+            opacity: 1;
+        }
+
+.item:target .smenu {
+    max-height: 100vh;
+}
+
+
+.mainTable {
+    text-align: center;
+}
+
+.nuvPagination {
+    margin-top: 79vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ 
+}
+    .nuvPagination button {
+        text-decoration: none;
+        width: 4vh;
+        height: 4vh;
+        text-align: center;
+        border: solid 1px #ececec;
+        border-radius: 10px;
+         margin-left: 5px;
+    }
+
+
+.comboBox {
+    width: 14vh;
+    height: 3.5vh;
+    border: solid 0 white;
+    border-bottom: solid 0.28vh black;
+}
