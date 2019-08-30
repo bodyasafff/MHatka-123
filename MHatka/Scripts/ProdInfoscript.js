@@ -39,7 +39,7 @@ function GetProduct() {
             $("#txtDescription").append(data.Description)
             $("#prodName").append(data.Name);
             massPrice = data.MapSizeers;
-            $("#prodPrice").append(data.MapSizeers[0].Prices);
+            $("#prodPrice").append(data.MapSizeers[0].Prices+" грн.");
             $.each(massPrice, function (index, value) {
                 $('#select-superpower').append($('<option>').attr('value', '').append(value.Sizes));
             })
@@ -155,7 +155,7 @@ function Bob() {
             $.each(massPrice, function (index, value) {
                 if ($('#selectSpan').text() == value.Sizes) {
                     $("#prodPrice").empty();
-                    $("#prodPrice").append(value.Prices);
+                    $("#prodPrice").append(value.Prices + " грн.");
                 }
             })
         }

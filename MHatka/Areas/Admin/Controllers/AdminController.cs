@@ -60,6 +60,7 @@ namespace MHatka.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult AddProduct(string[] img, string token = "", string name = "", string group = "", string article = "", string size = "", string price = "", string description = "", string brend = "", string country = "", string filler = "", string material = "", string special = "", string typeCloth = "")
         {
+            string imoge;
             bool tok = ChekToken(token);
             if (tok == true)
             {
@@ -74,13 +75,23 @@ namespace MHatka.Areas.Admin.Controllers
                     Prices = ctx.Prices.FirstOrDefault(c => c.Content == pricee) ?? new Price { Content = pricee }
                 });
                 Product product = new Product();
+                //foreach (var item in img)
+                //{
+                //    if (item != "")
+                //    {
+                //        temp.Add(new Models.Image { Name = item });
+                //    }
+                //}
+
                 foreach (var item in img)
                 {
                     if (item != "")
                     {
-                        temp.Add(new Models.Image { Name = item });
+                        imoge = UploadImage(item);
+                        temp.Add(new Models.Image { Name = imoge });
                     }
                 }
+
                 product.Images = temp;
                 product.Name = name;
                 product.Article = article;
@@ -100,9 +111,10 @@ namespace MHatka.Areas.Admin.Controllers
             return Content("");
         }
         [HttpPost]
-        public ActionResult EditProduct(string[] img, bool ifChang, string idProduct = "", string token = "", string name = "", string group = "", string article = "", string size = "", string price = "", string description = "", string brend = "", string country = "", string filler = "", string material = "", string special = "", string typeCloth = "")
+        public ActionResult EditProduct(string[] img,bool ifChang, string idProduct = "", string token = "", string name = "", string group = "", string article = "", string size = "", string price = "", string description = "", string brend = "", string country = "", string filler = "", string material = "", string special = "", string typeCloth = "")
         {
             bool tok = ChekToken(token);
+            string imoge;
             if (tok == true)
             {
                 int pricee = 0; Int32.TryParse(price, out pricee);
@@ -116,6 +128,7 @@ namespace MHatka.Areas.Admin.Controllers
                     Sizes = ctx.Sizes.FirstOrDefault(c => c.Name == size) ?? new Models.Size { Name = size },
                     Prices = ctx.Prices.FirstOrDefault(c => c.Content == pricee) ?? new Price { Content = pricee }
                 });
+                var ImageName = product.Images.Select(a=>a.Name).ToList();
                 if (ifChang)
                 {
                     var path = System.AppDomain.CurrentDomain.BaseDirectory;
@@ -132,11 +145,15 @@ namespace MHatka.Areas.Admin.Controllers
                     {
                         if (item != "")
                         {
-                            temp.Add(new Models.Image { Name = item });
+                            imoge = UploadImage(item);
+                            temp.Add(new Models.Image { Name = imoge });
                         }
-
                     }
                 }
+
+
+
+
                 product.Images = temp;
                 product.Name = name;
                 product.Article = article;
@@ -152,7 +169,7 @@ namespace MHatka.Areas.Admin.Controllers
                 ctx.SaveChanges();
                 foreach (var item in ctx.Images.ToList())
                 {
-                    if(item.Product == null)
+                    if (item.Product == null)
                     {
                         ctx.Images.Remove(item);
                         ctx.SaveChanges();
@@ -250,18 +267,28 @@ namespace MHatka.Areas.Admin.Controllers
                 return Content("");
             }
         }
-        [HttpPost]
-        public ContentResult UploadImage(HttpPostedFileBase image)
+
+        private string UploadImage(string croppedImage)
         {
 
-            Bitmap imageBig = Utils.CreateImage(image, 400, 600);
+            //var path = System.AppDomain.CurrentDomain.BaseDirectory;
+
+            //System.IO.File.Delete(path + "\\Image\\" + nam.Name);
+
+            string base64 = croppedImage;
+            byte[] bytes = Convert.FromBase64String(base64.Split(',')[1]);
+            Bitmap bmp;
+            using (var ms = new MemoryStream(bytes))
+            {
+                bmp = new Bitmap(ms);
+            }
             string path = Server.MapPath("/Image/");
-            string fileExtension = System.IO.Path.GetExtension(image.FileName);
-            Guid imageName = Guid.NewGuid();
-            string savepath = path + imageName + fileExtension;
-            imageBig.Save(savepath, ImageFormat.Jpeg);
-            string json = JsonConvert.SerializeObject(imageName + fileExtension);
-            return Content(json, "application/json");
+            //540*690
+            Bitmap imageBig = Utils.CreateImage(bmp, 360, 480);
+            string NameImg = Guid.NewGuid() + ".png";
+            string filePath = path + NameImg;
+            imageBig.Save(filePath, ImageFormat.Jpeg);
+            return NameImg;
         }
         [HttpPost]
         public ContentResult DeleteProduct(string id = "", string token = "")

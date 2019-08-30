@@ -207,6 +207,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Admin\Content\AdminMainStyle.css" />
+    <Content Include="Areas\Admin\Content\cropper.min.css" />
     <Content Include="Areas\Admin\Content\img\login-background.jpg" />
     <Content Include="Areas\Admin\Content\img\magnifying-glass.png" />
     <Content Include="Areas\Admin\Content\img\TabIcons\chart.png" />
@@ -218,10 +219,13 @@
     <Content Include="Areas\Admin\Content\img\TabIcons\products.png" />
     <Content Include="Areas\Admin\Content\products.css" />
     <Content Include="Areas\Admin\Content\schedule-style.css" />
+    <Content Include="Areas\Admin\Content\sweetalert.css" />
     <Content Include="Areas\Admin\Scripts\AdminScriptJs.js" />
     <Content Include="Areas\Admin\Scripts\FillTable.js" />
     <Content Include="Areas\Admin\Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Areas\Admin\Scripts\jquery-cropper.js" />
     <Content Include="Areas\Admin\Scripts\jquery.form.js" />
+    <Content Include="Areas\Admin\Scripts\sweetalert.min.js" />
     <Content Include="Areas\Admin\Scripts\vertical-tab.js" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\BasketStyle.css" />

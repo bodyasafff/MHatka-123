@@ -318,3 +318,61 @@ form.search-box::after {
     border: solid 0 white;
     border-bottom: solid 0.28vh black;
 }
+
+.grid_2 {
+    display: grid;
+    grid-column-gap: 5px;
+    grid-template-columns: 1fr 2.5fr;
+}
+
+.slidePhoto {
+    display: block;
+    position: relative;
+    background: #ffffff;
+    height: 40vh;
+    width: 55%;
+    border-radius: 10px;
+}
+
+    .slidePhoto button {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border: none;
+        background: none;
+        font-size: 8.4vh;
+        cursor: pointer;
+    }
+
+.num_slider {
+    width: 90%;
+    height: 5vh;
+    margin-top: 1vh;
+}
+
+.choose_item {
+    width: 90%;
+    height: 4.5vh;
+    border-radius: 5px;
+    margin-top: 1vh;
+    background-color: #f1f1f1;
+}
+
+.description_slide {
+    margin-top: 1vh;
+    width: 37%;
+    background-color: white;
+    color: #000;
+    border-radius: 4px;
+    height: 23vh;
+    text-decoration: none;
+    border: none;
+}
+
+.btn_alone {
+    margin-top: 1vh;
+    width: 55%;
+    height: 4.5vh;
+    border-radius: 5px;
+}

@@ -12,10 +12,30 @@
     <link href="~/Areas/Admin/Content/AdminMainStyle.css" rel="stylesheet" />
     <link href="~/Areas/Admin/Content/schedule-style.css" rel="stylesheet" />
     <link href="~/Areas/Admin/Content/products.css" rel="stylesheet" />
+    <link href="~/Areas/Admin/Content/cropper.min.css" rel="stylesheet" />
+    <link href="~/Areas/Admin/Content/sweetalert.css" rel="stylesheet" />
 
     <title>Графік</title>
 </head>
 <body>
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+
+            <span class="close">&times;</span>
+            <div class="container">
+                <div class="SaveCrop">
+                    <button id="crop">Зберегти</button>
+                    <button id="cropClear" >Очистити</button>
+
+                </div>
+
+                <canvas id="canvas"></canvas>
+            </div>
+        </div>
+
+    </div>
     <!-- Вертикальний список сторінок -->
     <section id="vertical-tabs">
         <div class="tab">
@@ -42,7 +62,7 @@
         <!---------------------- Профіль та пошук ----------------------->
     </section>
     <div class="profile-box">
-        <img src="Areas/Admin/Content/img/sanyok.jpg" alt="Avatar" class="avatar">
+        <img src="#" alt="Avatar" class="avatar">
         <a class="profile-name">Привіт :)</a>
     </div>
     <!-- !!!Важливо!!!Потрібно замінити на дію пошуку action="action_page.php"!!! -->
@@ -61,8 +81,49 @@
         <p>Paris is the capital of France.</p>
     </div>
     <div id="Documents" class="tabcontent">
-        <h3>Documents</h3>
-        <p>Tokyo is the capital of Japan.</p>
+        <h3>Налаштування головної сторінки</h3>
+        <div class="grid_2">
+            <div>
+                <div class="txtbh" style="margin-top: 1vh">
+                    <label for="">Номер картинки</label><br>
+                    <select class="num_slider" id="">
+                        <option disabled="disabled" selected="selected">Вибери номер картинки</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+                <p style="margin-top: 1vh">Вибери товар</p>
+                <form>
+                    <label>
+                        <input list="items_101" class="choose_item">
+                    </label>
+                    <datalist id="items_101">
+                        <option value="Explorer">
+                        <option value="Firefox">
+                        <option value="Chrome">
+                        <option value="Opera">
+                        <option value="Safari">
+                    </datalist>
+                </form>
+                <div style="margin-top: 1vh">
+                    <label>
+                        Заголовок
+                        <input class="choose_item" name="заголовок">
+                    </label>
+                </div>
+            </div>
+            <div style="margin-top: 1vh;">
+                <label for="  ">Опис</label><br>
+                <textarea data-placeholder="Опис" id="  " rows="20" class="description_slide"></textarea>
+            </div>
+        </div>
+        <div class="slidePhoto" style="margin-top: 1vh">
+            <button>+</button>
+        </div>
+        <button class="btn_alone" id=" ">Обновити</button>
     </div>
     <!---------------------------------------- Сторінка товару -------------------------------------->
     <div id="Products" class="tabcontent">
@@ -86,11 +147,9 @@
             <!--------------------------- Таблиця з товарами -->
             <div class="productsGrid">
                 <table>
-                    <tbody id="productsInfo">
-
-                    </tbody>
+                    <tbody id="productsInfo"></tbody>
                 </table>
-            </div>  
+            </div>
 
             <div class="productInfo">
                 <!--------------------------- Фотографії товару -->
@@ -139,10 +198,9 @@
 
     <!------------------------------- РОЗШИРЕНА ІНФОРМАЦІЯ ПРО ТОВАР ------------------------->
     <div id="AboutItem" class="tabcontent">
-        @using (Html.BeginForm("UploadImage", "Admin", FormMethod.Post, new { @style = "display:none",@id= "uploadForm" }))
+        @using (Html.BeginForm("UploadImage", "Admin", FormMethod.Post, new { @style = "display:none", @id = "uploadForm" }))
         {
-            <input type = "file" name = "image" id = "image" />
-             <button id = "saveClick" onclick = "uploadImage()" ></button>
+            <input type="file" name="image" id="image" />
         }
 
         @*<form style="display:none" action="http://localhost:51465/Admin/UploadImage"
@@ -246,6 +304,8 @@
     <script src="~/Scripts/jquery-3.3.1.min.js"></script>
     <script src="~/Areas/Admin/Scripts/vertical-tab.js"></script>
     <script src="~/Areas/Admin/Scripts/jquery.form.js"></script>
+    <script src="~/Areas/Admin/Scripts/jquery-cropper.js"></script>
+    <script src="~/Areas/Admin/Scripts/sweetalert.min.js"></script>
     <script src="~/Areas/Admin/Scripts/FillTable.js"></script>
     <script type="text/javascript">
         $(".txtb input").on("focus", function () {

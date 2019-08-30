@@ -1,21 +1,44 @@
-﻿var email;
+﻿var cropper;
+var email;
 var password;
+var $canvas;
 var numThisPage = 1;
 var numLastPage = 1;
 var groupId = "";
 var idproduct = "";
 var idPhoto;
-var imgMass = ["","","","",""];
-var groupId="";
+var imgMass = ["", "", "", "", ""];
+var groupId = "";
 var photoId = 0;
-var ifChange = false;
 var idsizeer = "";
+var ifChange = false;
 
 
 $(document).ready(function () {
     CreateMenu();
     CreateGroupsToAdd();
+    $canvas = $('#canvas'),
+        context = $canvas.get(0).getContext('2d');
+
 })
+var modal = document.getElementById("myModal");
+
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function () {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function (event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
 
 
 function Clearing() {
@@ -128,11 +151,12 @@ function AddProduct() {
         },
         success: function (res) {
             GetProducts();
-  
+            imgMass = ["", "", "", "", ""];
         },
         error: function (err) {
             console.log(err);
             GetProducts();
+            imgMass = ["", "", "", "", ""];
         }
     })
 }
@@ -161,13 +185,15 @@ function EditProduct() {
             ifChang: ifChange
         },
         success: function (res) {
-            ifChange = false;
             GetProducts();
+            ifChange = false;
+            imgMass = ["", "", "", "", ""];
         },
         error: function (err) {
-            console.log(err);
             ifChange = false;
+            console.log(err);
             GetProducts();
+            imgMass = ["", "", "", "", ""];
         }
     })
 }
@@ -244,13 +270,13 @@ function GetProducts() {
                     .append("Назва").attr('class', 'thNameTd'))
                 .append($('<td>')
                     .append("Опис").attr('class', 'thDexcTd'))
-                
+
             )
             for (var i = 0; i < data.products.length; i++) {
 
                 $("#productsInfo").append($('<tr>')
                     .attr('value', data.products[i].id).append($('<td>')
-                        .attr('class','imageTd')
+                        .attr('class', 'imageTd')
                         .append($('<img>')
                             .attr('src', '/Image/' + data.products[i].image)
                         )
@@ -259,7 +285,7 @@ function GetProducts() {
                         .append(data.products[i].name).attr('class', 'nameTd'))
                     .append($('<td>')
                         .append(data.products[i].description).attr('class', 'descTd'))
-                   )
+                )
             }
         },
         error: function (err) {
@@ -268,7 +294,7 @@ function GetProducts() {
     })
 }
 
-function CreateGroupsToAdd(){
+function CreateGroupsToAdd() {
     $.ajax({
         url: "/Admin/GetMenu?token=" + window.sessionStorage.getItem("token"),
         method: "GET",
@@ -284,7 +310,7 @@ function CreateGroupsToAdd(){
 
             }
         },
-        error: function (err){
+        error: function (err) {
             console.log(err);
         }
     })
@@ -297,18 +323,18 @@ function CreateMenu() {
         success: function (data) {
             for (var i = 0; i < data.length; i++) {
                 $("#categories").append($('<button>')
-                    .attr('Id',data[i].Id)
+                    .attr('Id', data[i].Id)
                     .append(data[i].Name));
                 $("#SelGroupBtns").append($('<div>')
                     .attr('class', 'subcategories')
                     .attr('Id', 'data' + data[i].Id)
                 );
-            
+
                 $.each(data[i].Groups, function (index, value) {
                     $('#data' + data[i].Id).append($('<button>')
                         .attr('id', value.Id)
                         .append(value.Name))
-                    
+
                 })
             }
         },
@@ -320,7 +346,7 @@ function CreateMenu() {
 
 function GetProduct() {
     $.ajax({
-        url: "/Admin/GetProduct?id=" + idproduct + "&token="+ window.sessionStorage.getItem("token"),
+        url: "/Admin/GetProduct?id=" + idproduct + "&token=" + window.sessionStorage.getItem("token"),
         method: "GET",
         success: function (data) {
             for (var i = 0; i < data.MapSizeers.length; i++) {
@@ -347,8 +373,8 @@ function GetProduct() {
             document.getElementById("txt_Special").value = data.Special;
             document.getElementById("txt_TypeCloth").value = data.TypeCloth;
             if (data.MapSizeers[0].Sizes != null) {
-            document.getElementById("txt_Size").value = data.MapSizeers[0].Sizes;
-            document.getElementById("txt_Price").value = data.MapSizeers[0].Prices;
+                document.getElementById("txt_Size").value = data.MapSizeers[0].Sizes;
+                document.getElementById("txt_Price").value = data.MapSizeers[0].Prices;
             }
         },
         error: function (error) {
@@ -369,7 +395,7 @@ $("#addSizePrice").click(function () {
 })
 
 $("#addPtod").click(function () {
-    AddProduct(); 
+    AddProduct();
     Clearing();
 })
 
@@ -389,7 +415,7 @@ $("#pagination").on('click', 'button', function () {
     $("#pagination").empty();
     GetProducts();
 })
- 
+
 $("#SelGroupBtns").on('click', 'button', function () {
     numLastPage = 1;
     numThisPage = 1;
@@ -444,9 +470,9 @@ $("#BtnDeleteProduct").click(function () {
 
 $("#btnDeleteSize").click(function () {
     if ($("#sel_Sizeer").children(":selected").attr("id") != undefined) {
-    idsizeer = $("#sel_Sizeer").children(":selected").attr("id");
-    $("#sel_Sizeer").children(":selected").remove();
-    DeleteSizeer();
+        idsizeer = $("#sel_Sizeer").children(":selected").attr("id");
+        $("#sel_Sizeer").children(":selected").remove();
+        DeleteSizeer();
     }
 
 })
@@ -458,15 +484,75 @@ $("#photos").on('click', 'button', function () {
 });
 $("#image").change(function () {
     if (this.value != "") {
-        $('#saveClick').click();
+        {
+            if (this.files && this.files[0]) {
+                if (this.files[0].type.match(/^image\//)) {
+                    modal.style.display = "block";
+                    var reader = new FileReader();
+                    // $('#file_name').attr('value',this.files[0]);
+                    reader.onload = function (e) {
+                        var img = new Image();
+                        img.onload = function () {
+                            context.canvas.width = img.width;
+                            context.canvas.height = img.height;
+                            context.drawImage(img, 0, 0);
+                            if (cropper != undefined) {
+
+                                $canvas.cropper('destroy');
+                            }
+                            cropper = $canvas.cropper({
+                                viewMode: 2,
+                                minCropBoxWidth: 100,
+                                minCropBoxHeight: 100,
+                                aspectRatio: 3 / 4
+                            });
+                        };
+                        img.src = e.target.result;
+                    };
+                    reader.readAsDataURL(this.files[0]);
+                }
+                else {
+                    swal("Invalid file type", "", "error");
+                }
+            }
+            else {
+                swal("Please select a file.", "", "info");
+            }
+        }
         this.value = "";
-        ifChange = true;
     }
 
 });
-function uploadImage() {
-    $('#uploadForm').ajaxForm(function (data) {
-        $('#' + idPhoto + 'Photo').attr('style', 'background: url(/Image/' + data + ');background-size:cover;');
-        imgMass[idPhoto] = data;
-         });
-}
+
+
+$('#crop').click(function () {
+    if ($canvas.cropper != null) {
+        var croppedImage = $canvas.cropper('getCroppedCanvas').toDataURL('image/jpg');
+        $('#' + idPhoto + 'Photo').attr('style', 'background: url('+croppedImage+');background-size:cover;');
+        imgMass[idPhoto] = croppedImage;
+        modal.style.display = "none";
+        ifChange = true;
+    }
+    // $.ajax({
+    //     url: "http://localhost:50742/Home/UploadImage",
+    //     method: "POST",
+    //     dataType: "json",
+    //     data: {
+    //         croppedImage: croppedImage
+    //     },
+    //     success: function (res) {
+    //         console.log(res);
+
+    //     },
+    //     error: function (err) {
+    //         console.log(err);
+    //     }
+    // })
+
+})
+$('#cropClear').click(function () {
+    $('#' + idPhoto + 'Photo').removeAttr('style');
+    imgMass[idPhoto] = "";
+    modal.style.display = "none";
+    ifChange = true;
+})
