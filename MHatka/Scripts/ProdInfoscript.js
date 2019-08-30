@@ -30,7 +30,7 @@ function GetProduct() {
             $.each(data.Images, function (index, value) {
                 $("#massPhoto").append($('<img>')
                     .attr('src', '/Image/' + value)
-                    .attr('style', 'width: 80vh; height: 98vh;')
+                    .attr('style', 'width: 65vh; height: 80vh;')
                     .attr('tabindex', '0')
                     .attr('alt', ''))
 

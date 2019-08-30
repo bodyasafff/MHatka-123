@@ -21,7 +21,7 @@ body {
     color: #666;
     font-family: 'Open Sans', sans-serif;
     font-size: 62.5%;
-    margin-top: 15vh;
+    margin-top: 120px;
 }
 
 a {
@@ -385,7 +385,7 @@ aside {
     background: #fff;
     position: absolute;
     overflow: hidden;
-    height: 148px;
+    height: 115px;
 }
 #main-bar ul {
     margin: 0;
@@ -393,8 +393,8 @@ aside {
 }
 #main-bar .ico {
     display: inline-block;
-    margin-top: 5vh;
-    margin-left: 5vh;
+    margin-top: 2vh;
+    margin-left: 2.5vh;
 }
 #main-bar .shopping_cart {
     display: inline-block;

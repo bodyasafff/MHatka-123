@@ -10,7 +10,6 @@ body {
     font-size: 12px;
 }
 .menu {
-    margin-top: 53px;
     float: left;
     position: fixed;
 }
@@ -33,7 +32,7 @@ body {
     background-color: white;
 }
 
-nav .menu a {
+ .menu a {
     border-bottom: none;
     display: block;
 }
@@ -104,7 +103,7 @@ a {
         text-decoration: none;
         border-bottom: none;
         margin-top: 2vh;
-        margin-left: 5vh;
+        margin-left: 2.5vh;
     }
 
     #main-bar .shopping_cart {
@@ -142,7 +141,7 @@ a {
     height: 1px;
 }
 
-/*@media (min-width:600px) and (max-width:757px) {
+@media (min-width:600px) and (max-width:757px) {
     .menu {
         position: relative;
         display: block;
@@ -206,7 +205,7 @@ a {
         height: 250px;
         position: relative;
     }
-}*/
+}
 
 .clearfix {
     content: '';
@@ -218,6 +217,8 @@ a {
 
 .vuborka select {
     width: 15%;
+    background-color:#fff;
+    text-align:center;
 }
 
     .vuborka select:focus {
@@ -245,8 +246,8 @@ a {
 
     #main-bar .ico {
         display: inline-block;
-        margin-top: 5vh;
-        margin-left: 5vh;
+        margin-top: 2vh;
+        margin-left: 2.5vh;
     }
 
     #main-bar .shopping_cart {
@@ -275,7 +276,9 @@ a {
 @media (min-width:1680px) {
 
     .mainTable {
-        margin-left: 250px;
+        width: 100%;
+        padding-left: 250px;
+        text-align: center;
     }
     .mainTable tr td {
         width: 340px;
@@ -294,8 +297,8 @@ a {
     }
 
     .vuborka {
-        margin-top: 30px;
-        margin-left: 250px;
+        padding-left: 250px;
+        text-align: center;
     }
 }
 
@@ -303,7 +306,9 @@ a {
 
 
     .mainTable {
-        margin-left: 250px;
+        width: 100%;
+        padding-left: 250px;
+        text-align: center;
     }
     .mainTable tr td {
         width: 248px;
@@ -322,8 +327,8 @@ a {
     }
 
     .vuborka {
-        margin-left: 250px;
-        margin-top: 30px;
+        padding-left: 250px;
+        text-align: center;
     }
 }
 
@@ -331,7 +336,9 @@ a {
 
 
     .mainTable {
-        margin-left: 250px;
+        width: 100%;
+        padding-left: 250px;
+        text-align: center;
     }
     .mainTable tr td div {
         width: 100%;
@@ -355,8 +362,8 @@ a {
     }
 
     .vuborka {
-        margin-left: 250px;
-        margin-top: 30px;
+        padding-left: 250px;
+        text-align: center;
     }
 }
 
@@ -364,7 +371,9 @@ a {
 
 
     .mainTable {
-        margin-left: 250px;
+        width: 100%;
+        padding-left: 250px;
+        text-align: center;
     }
     .mainTable tr td {
         width: 175px;
@@ -383,40 +392,48 @@ a {
     }
 
     .vuborka {
-        margin-left: 250px;
-        margin-top: 30px;
+        padding-left: 250px;
+        text-align: center;
     }
 }
 
-@media ( max-width:1023px) {
+@media (min-width:960px) and (max-width:1023px) {
 
     .mainTable {
-        margin-left: 250px;
-    }
-    .mainTable tr td {
-        width: 150px;
-        height: 190px;
-        margin: 6px;
-        display: inline-block;
+        width: 100%;
+        padding-left: 250px;
+        text-align: center;
     }
 
-        .mainTable tr td img {
+        .mainTable tr td {
             width: 150px;
-            height: 150px;
+            height: 190px;
+            margin: 6px;
+            display: inline-block;
         }
+
+            .mainTable tr td img {
+                width: 150px;
+                height: 150px;
+            }
 
     .Tabl {
         margin-top: 10px;
     }
 
     .vuborka {
-        margin-left: 250px;
-        margin-top: 30px;
+        padding-left: 250px;
+        text-align: center;
     }
 }
-/*@media (min-width:758px) and (max-width:959px) {
+@media (min-width:758px) and (max-width:959px) {
+    footer {
+        margin-left: auto !important;
+    }
     .mainTable {
-        width: 100%;
+        padding-left: 250px;
+        width:100%;
+        text-align: center;
     }
     .mainTable tr td {
         width: 170px;
@@ -444,7 +461,9 @@ a {
 
 @media (min-width:600px) and (max-width:757px) {
 
-
+    footer {
+        margin-left: auto !important;
+    }
     .mainTable tr td {
         width: 230px;
         height: 270px;
@@ -471,7 +490,9 @@ a {
 
 @media (max-width:600px) {
 
-
+    footer {
+        margin-left: auto !important;
+    }
     .mainTable tr td {
         width: 180px;
         height: 220px;
@@ -497,7 +518,7 @@ a {
         top: 0px;
         left: 0px;
     }
-}*/
+}
 
 .item {
     overflow: hidden;

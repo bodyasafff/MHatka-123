@@ -98,12 +98,12 @@ div .text {
 }
 div .icon{
     position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 2vh;
+    left: 11vh;
+    padding: 1vh;
 }
 div .icon img{
+    width:200px;
+    height:140px;
 }
 #nav-bar{
     margin-top: 10%;
