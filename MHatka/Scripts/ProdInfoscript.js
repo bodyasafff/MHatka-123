@@ -39,9 +39,15 @@ function GetProduct() {
             $("#txtDescription").append(data.Description)
             $("#prodName").append(data.Name);
             massPrice = data.MapSizeers;
-            $("#prodPrice").append(data.MapSizeers[0].Prices+" грн.");
+            $("#prodPrice").append("&#8372; "+data.MapSizeers[0].Prices + " грн." );
             $.each(massPrice, function (index, value) {
-                $('#select-superpower').append($('<option>').attr('value', '').append(value.Sizes));
+                if (massPrice.length == 1) {
+                    $('#select-superpower').append($('<option>').attr('value', '').append(value.Sizes));
+                }
+                else {
+                    $('#select-superpower').append($('<option>').attr('velue', '').append("Виберіть розмір"))
+                    $('#select-superpower').append($('<option>').attr('value', '').append(value.Sizes));
+                }
             })
             Bob();
         },

@@ -85,7 +85,7 @@ function CreateMenu() {
                         .attr('class', 'quantity'))
                     .append($('<div>')
                         .attr('class', 'price')
-                        .append(temp))
+                        .append("&#8372;"+temp))
                     .append($('<div>')
                         .attr('class', 'remove')
                         .append($('<button>')
