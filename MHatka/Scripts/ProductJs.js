@@ -13,6 +13,7 @@ var special = "";
 
 
 $(document).ready(function () {
+    
     if (location.search != "") {
 
         findGetParameter();
@@ -120,7 +121,7 @@ function GetProducts() {
                                     .append(data.products[i].name)
                                 ).append($('<br>'))
                                 .append($('<label>')
-                                    .append(data.products[i].price)
+                                    .append(data.products[i].price).append(" грн")
                                 )
                             ))
                         .append($('<a>')
@@ -134,7 +135,7 @@ function GetProducts() {
                                     .append(data.products[i + 1].name)
                                 ).append($('<br>'))
                                 .append($('<label>')
-                                    .append(data.products[i + 1].price)
+                                    .append(data.products[i + 1].price).append(" грн")
                                 )
                             ))
 
@@ -149,7 +150,7 @@ function GetProducts() {
                                     .append(data.products[i + 2].name)
                                 ).append($('<br>'))
                                 .append($('<label>')
-                                    .append(data.products[i + 2].price)
+                                    .append(data.products[i + 2].price).append(" грн")
                                 )
                             ))
                         .append($('<a>')
@@ -163,7 +164,7 @@ function GetProducts() {
                                     .append(data.products[i + 3].name)
                                 ).append($('<br>'))
                                 .append($('<label>')
-                                    .append(data.products[i + 3].price)
+                                    .append(data.products[i + 3].price).append(" грн")
                                 )
                             ))
                     )
@@ -182,7 +183,7 @@ function GetProducts() {
                                     .append(data.products[i].name)
                                 ).append($('<br>'))
                                 .append($('<label>')
-                                    .append(data.products[i].price)
+                                    .append(data.products[i].price).append(" грн")
                                 )
                             ))
                         .append($('<a>')
@@ -196,7 +197,7 @@ function GetProducts() {
                                     .append(data.products[i + 1].name)
                                 ).append($('<br>'))
                                 .append($('<label>')
-                                    .append(data.products[i + 1].price)
+                                    .append(data.products[i + 1].price).append(" грн")
                                 )
                             ))
                         .append($('<a>')
@@ -210,7 +211,7 @@ function GetProducts() {
                                     .append(data.products[i + 2].name)
                                 ).append($('<br>'))
                                 .append($('<label>')
-                                    .append(data.products[i + 2].price)
+                                    .append(data.products[i + 2].price).append(" грн")
                                 )
                             ))
                     )
@@ -230,7 +231,7 @@ function GetProducts() {
                                     .append(data.products[i].name)
                                 ).append($('<br>'))
                                 .append($('<label>')
-                                    .append(data.products[i].price)
+                                    .append(data.products[i].price).append(" грн")
                                 )
                             ))
                         .append($('<a>')
@@ -245,7 +246,7 @@ function GetProducts() {
                                     .append(data.products[i + 1].name)
                                 ).append($('<br>'))
                                 .append($('<label>')
-                                    .append(data.products[i + 1].price)
+                                    .append(data.products[i + 1].price).append(" грн")
                                 )
                             ))
                     )
@@ -264,7 +265,7 @@ function GetProducts() {
                                     .append(data.products[i].name)
                                 ).append($('<br>'))
                                 .append($('<label>')
-                                    .append(data.products[i].price)
+                                    .append(data.products[i].price).append(" грн")
                                 )
                             ))
                     )
@@ -301,11 +302,14 @@ function CreateMenu() {
                 $.each(data[i].Groups, function (index, value) {
                     $('#data' + data[i].Id).append($('<button>')
                         .attr('value', value.Id)
-                        .attr('Id', data[i].Id)
+                        .attr('Id', data[i].Id) 
                         .append(value.Name)
+
                     )
                 })
             }
+            ;
+            window.location="#"+$('[value = ' + GroupId + ']').attr('Id');
         },
         error: function (error) {
             console.log(error);

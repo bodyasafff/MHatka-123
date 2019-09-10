@@ -86,44 +86,35 @@
             <div>
                 <div class="txtbh" style="margin-top: 1vh">
                     <label for="">Номер картинки</label><br>
-                    <select class="num_slider" id="">
-                        <option disabled="disabled" selected="selected">Вибери номер картинки</option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
+                    <select class="num_slider" id="selSliderProduct">
+                        <option disabled="disabled" selected="selected">Виберіть номер картинки</option>
+                        <option value="14">1</option>
+                        <option value="15">2</option>
+                        <option value="16">3</option>
+                        <option value="17">4</option>
+                        <option value="18">5</option>
                     </select>
                 </div>
                 <p style="margin-top: 1vh">Вибери товар</p>
-                <form>
-                    <label>
-                        <input list="items_101" class="choose_item">
-                    </label>
-                    <datalist id="items_101">
-                        <option value="Explorer">
-                        <option value="Firefox">
-                        <option value="Chrome">
-                        <option value="Opera">
-                        <option value="Safari">
-                    </datalist>
-                </form>
+                
+                        <input id="thisproductId" list="items_101" class="choose_item">
+                    
                 <div style="margin-top: 1vh">
                     <label>
                         Заголовок
-                        <input class="choose_item" name="заголовок">
+                        <input id="prodName" class="choose_item" name="заголовок">
                     </label>
                 </div>
             </div>
             <div style="margin-top: 1vh;">
                 <label for="  ">Опис</label><br>
-                <textarea data-placeholder="Опис" id="  " rows="20" class="description_slide"></textarea>
+                <textarea data-placeholder="Опис" id="prodDesc" rows="20" class="description_slide"></textarea>
             </div>
         </div>
-        <div class="slidePhoto" style="margin-top: 1vh">
-            <button>+</button>
+        <div class="slidePhoto" id="200Photo" style="margin-top: 1vh">
+            <button id="PhotoForMain">+</button>
         </div>
-        <button class="btn_alone" id=" ">Обновити</button>
+        <button class="btn_alone" id="clickAddProdToSlider">Обновити</button>
     </div>
     <!---------------------------------------- Сторінка товару -------------------------------------->
     <div id="Products" class="tabcontent">

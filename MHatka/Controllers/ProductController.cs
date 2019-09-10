@@ -73,7 +73,7 @@ namespace MHatka.Controllers
                 && (g.Brend.Name == brend || brend == "")
                 && (g.TypeCloth.Name == typeCloth || typeCloth == "")
                 && (g.Filler.Name == filler || filler == "")
-                && (g.Special.Name == special || special == "")).Select(k => new { id = k.Id, name = k.Name,/*prices = k.Sizeers.Select(p=>p.Prices)*/ image = k.Images.Select(q => q.Name),price=k.Sizeers.FirstOrDefault().Prices.Content })
+                && (g.Special.Name == special || special == "")).Select(k => new { id = k.Id, name = k.Name,/*prices = k.Sizeers.Select(p=>p.Prices)*/ image = k.Images.Select(q => q.Name), price = k.Sizeers.FirstOrDefault().Prices.Content })
                  .Skip(startSkip).Take(20).ToList();
 
 
@@ -156,7 +156,15 @@ namespace MHatka.Controllers
             smtp.Send(m);
             return Content("");
         }
+
+        [HttpGet]
+        public ActionResult GetMainInfo()
+        {
+            using (EfContext ctx = new EfContext())
+            {
+            string json = JsonConvert.SerializeObject(ctx.TopProducts.ToList());
+            return Content(json, "application/json");
+            }
+        }
     }
-
-
 }

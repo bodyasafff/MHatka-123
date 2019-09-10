@@ -24,6 +24,7 @@ namespace MHatka.Models
         public DbSet<Sizeer> Sizeers { get; set; }
         public DbSet<Special> Specials { get; set; }
         public DbSet<TypeCloth> TypeCloths { get; set; }
+        public DbSet<TopProduct> TopProducts { get; set; }
         private static string GetConnectionString() //TestVersion
         {
             string dbname = "modnahatka";

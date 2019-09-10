@@ -179,6 +179,14 @@
     <Compile Include="Migrations\201908221611007_Initilize db.Designer.cs">
       <DependentUpon>201908221611007_Initilize db.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201909021233043_InitialMigration.cs" />
+    <Compile Include="Migrations\201909021233043_InitialMigration.Designer.cs">
+      <DependentUpon>201909021233043_InitialMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201909021235055_AddTableToMainProducts.cs" />
+    <Compile Include="Migrations\201909021235055_AddTableToMainProducts.Designer.cs">
+      <DependentUpon>201909021235055_AddTableToMainProducts.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Brend.cs" />
     <Compile Include="Models\Country.cs" />
@@ -202,6 +210,7 @@
     <Compile Include="Models\Size.cs" />
     <Compile Include="Models\Sizeer.cs" />
     <Compile Include="Models\Special.cs" />
+    <Compile Include="Models\TopProduct.cs" />
     <Compile Include="Models\TypeCloth.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -252,11 +261,13 @@
     <Content Include="Content\imgProducts\shopping-cart.png" />
     <Content Include="Content\imgProducts\TekstilIcon.png" />
     <Content Include="Content\imgProducts\TextilRivne.png" />
+    <Content Include="Content\img\mainpage\1carusel_1\2.jpg" />
     <Content Include="Content\img\mainpage\2newandpopular\3.jpg" />
+    <Content Include="Content\img\mainpage\2newandpopular\8.jpg" />
+    <Content Include="Content\img\mainpage\2newandpopular\9.jpg" />
     <Content Include="Content\ProdInfoStyle.css" />
     <Content Include="Content\ProductsCss.css" />
     <Content Include="Content\img\mainpage\1carusel_1\1.jpg" />
-    <Content Include="Content\img\mainpage\1carusel_1\2.jpeg" />
     <Content Include="Content\img\mainpage\1carusel_1\3.jpg" />
     <Content Include="Content\img\mainpage\1carusel_1\4.jpg" />
     <Content Include="Content\img\mainpage\1carusel_1\5.jpg" />
@@ -370,13 +381,17 @@
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
     <Content Include="Scripts\jquery.min.js" />
+    <Content Include="Scripts\MainScript.js" />
     <Content Include="Scripts\ProdInfoscript.js" />
     <Content Include="Scripts\ProductJs.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\sweetalert.min.js" />
     <Content Include="Scripts\vanillaSlideshow.min.js" />
+    <Content Include="Views\Home\image-sitemap.xml" />
     <Content Include="Views\Home\ProdInfo.cshtml" />
     <Content Include="Views\Home\Basket.cshtml" />
+    <Content Include="Views\Home\robots.txt" />
+    <Content Include="Views\Home\sitemap.xml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -434,6 +449,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201908221611007_Initilize db.resx">
       <DependentUpon>201908221611007_Initilize db.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909021233043_InitialMigration.resx">
+      <DependentUpon>201909021233043_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909021235055_AddTableToMainProducts.resx">
+      <DependentUpon>201909021235055_AddTableToMainProducts.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

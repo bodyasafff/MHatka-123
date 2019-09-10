@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: 
+Host: www.tekstil-rivne.com.ua
+Sitemap: http://tekstil-rivne.com.ua/sitemap.xml

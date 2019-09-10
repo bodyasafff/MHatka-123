@@ -12,6 +12,7 @@ var groupId = "";
 var photoId = 0;
 var idsizeer = "";
 var ifChange = false;
+var imgMain = "";
 
 
 $(document).ready(function () {
@@ -150,10 +151,12 @@ function AddProduct() {
             img: imgMass
         },
         success: function (res) {
+
             GetProducts();
             imgMass = ["", "", "", "", ""];
         },
         error: function (err) {
+            alert("Товар додано");
             console.log(err);
             GetProducts();
             imgMass = ["", "", "", "", ""];
@@ -194,6 +197,38 @@ function EditProduct() {
             console.log(err);
             GetProducts();
             imgMass = ["", "", "", "", ""];
+        }
+    })
+}
+
+function AddProductToSlider() {
+    $.ajax({
+        url: "/Admin/AddProductToSlider",
+        method: "POST",
+        dataType: "json",
+        data: {
+            name: document.getElementById("prodName").value,
+            thisprodid: document.getElementById("thisproductId").value,
+            description: document.getElementById("prodDesc").value,
+            prodid: document.getElementById("selSliderProduct").value,
+            image: imgMain
+        },
+        success: function (res) {
+            document.getElementById("prodName").value = "";
+            document.getElementById("thisproductId").value = "";
+            document.getElementById("prodDesc").value = "";
+            $('#200Photo').removeAttr('style');
+            imgMain = "";
+            console.log(res);
+        },
+        error: function (err) {
+            document.getElementById("prodName").value = "";
+            document.getElementById("thisproductId").value = "";
+            document.getElementById("prodDesc").value = "";
+            $('#200Photo').removeAttr('style');
+            imgMain = "";
+            console.log(err);
+
         }
     })
 }
@@ -399,7 +434,18 @@ $("#addPtod").click(function () {
     Clearing();
 })
 
+$("#clickAddProdToSlider").click(function () {
+    if (document.getElementById("selSliderProduct").value != "Виберіть номер картинки") {
+        AddProductToSlider();
+    }
+    else {
+        swal("Виберіть номер kартинки");
+    }
+})
+
+
 $("#editPtod").click(function () {
+    ifChange = false;
     EditProduct();
     Clearing();
 })
@@ -476,7 +522,10 @@ $("#btnDeleteSize").click(function () {
     }
 
 })
-
+$('#PhotoForMain').on('click', function () {
+    $("#image").click();
+    idPhoto = 200;
+})
 $("#photos").on('click', 'button', function () {
     $("#image").click();
     idPhoto = this.value;
@@ -500,12 +549,22 @@ $("#image").change(function () {
 
                                 $canvas.cropper('destroy');
                             }
+                            if (idPhoto == 200) {
+                                cropper = $canvas.cropper({
+                                    viewMode: 2,
+                                    minCropBoxWidth: 100,
+                                    minCropBoxHeight: 100,
+                                    aspectRatio: 16 / 9
+                                });
+                            }
+                            else {
                             cropper = $canvas.cropper({
                                 viewMode: 2,
                                 minCropBoxWidth: 100,
                                 minCropBoxHeight: 100,
                                 aspectRatio: 3 / 4
                             });
+                            }
                         };
                         img.src = e.target.result;
                     };
@@ -528,10 +587,16 @@ $("#image").change(function () {
 $('#crop').click(function () {
     if ($canvas.cropper != null) {
         var croppedImage = $canvas.cropper('getCroppedCanvas').toDataURL('image/jpg');
-        $('#' + idPhoto + 'Photo').attr('style', 'background: url('+croppedImage+');background-size:cover;');
-        imgMass[idPhoto] = croppedImage;
+        $('#' + idPhoto + 'Photo').attr('style', 'background: url(' + croppedImage + ');background-size:cover;');
+        if (idPhoto != 200) {
+
+            imgMass[idPhoto] = croppedImage;
+            ifChange = true;
+        }
+        else {
+            imgMain = croppedImage;
+        }
         modal.style.display = "none";
-        ifChange = true;
     }
     // $.ajax({
     //     url: "http://localhost:50742/Home/UploadImage",
