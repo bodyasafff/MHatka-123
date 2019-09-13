@@ -39,23 +39,57 @@ function GetProduct() {
             $("#txtDescription").append(data.Description)
             $("#prodName").append(data.Name);
             massPrice = data.MapSizeers;
-            $("#prodPrice").append("&#8372; "+data.MapSizeers[0].Prices + " грн." );
+            $("#prodPrice").append("&#8372; " + data.MapSizeers[0].Prices + " грн.");
+            let countToGeneratePickSize = 0;
             $.each(massPrice, function (index, value) {
                 if (massPrice.length == 1) {
                     $('#select-superpower').append($('<option>').attr('value', '').append(value.Sizes));
+                    GetInfoProdInBasket(idProduct, value.Sizes);
                 }
                 else {
-                    $('#select-superpower').append($('<option>').attr('velue', '').append("Виберіть розмір"))
+                    countToGeneratePickSize++;
+                    if (countToGeneratePickSize == 1) {
+                        $('#select-superpower').append($('<option>').attr('velue', '').append("Виберіть розмір"))
+                    }
                     $('#select-superpower').append($('<option>').attr('value', '').append(value.Sizes));
                 }
             })
-            Bob();
+            SelectBox();
+            $(".sel").on('DOMSubtreeModified', function () {
+                if ($("#selectSpan").text() != "" && $("#selectSpan").text() != "Виберіть розмір") {
+                    GetInfoProdInBasket(idProduct, $("#selectSpan").text());
+                }
+            });
         },
         error: function (error) {
             console.log(error);
         }
     })
 };
+
+function GetInfoProdInBasket(idProd, Size) {
+    $('#addToBasket').text("Додати до кошика");
+    if (window.sessionStorage.key("MassItemToBasket")) {
+        if (JSON.parse(window.sessionStorage.getItem("MassItemToBasket")).length == undefined) {
+
+            if (idProd == JSON.parse(window.sessionStorage.getItem("MassItemToBasket")).idProd && Size == JSON.parse(window.sessionStorage.getItem("MassItemToBasket")).SetSize) {
+
+                $('#addToBasket').text("Додано");
+            }
+
+
+        }
+        else {
+            for (var i = 0; i < JSON.parse(window.sessionStorage.getItem("MassItemToBasket")).length; i++) {
+                if (idProd == JSON.parse(window.sessionStorage.getItem("MassItemToBasket"))[i].idProd && Size == JSON.parse(window.sessionStorage.getItem("MassItemToBasket"))[i].SetSize) {
+                    $('#addToBasket').text("Додано");
+
+                }
+            }
+        }
+    }
+};
+
 function CreateMenu() {
     $.ajax({
         url: "/Product/GetMenu",
@@ -81,7 +115,8 @@ function CreateMenu() {
                 $.each(data[i].Groups, function (index, value) {
                     $('#data' + data[i].Id).append($('<button>')
                         .attr('value', value.Id)
-                        .attr('Id', data[i].Id)
+                        .attr('Id', data[i
+                        ].Id)
                         .append(value.Name)
                     )
                 })
@@ -96,7 +131,7 @@ function CreateMenu() {
 $('#menu').on('click', 'button', function () {
     window.location = "Products?productId=" + this.value;
 });
-function Bob() {
+function SelectBox() {
     /* ===== Logic for creating fake Select Boxes ===== */
     $('.sel').each(function () {
         $(this).children('select').css('display', 'none');
@@ -127,12 +162,12 @@ function Bob() {
         });
     });
 
-    // Toggling the `.active` state on the `.sel`.
+    // Toggling the .active state on the .sel.
     $('.sel').click(function () {
         $(this).toggleClass('active');
     });
 
-    // Toggling the `.selected` state on the options.
+    // Toggling the .selected state on the options.
     $('.sel__box__options').click(function () {
         var txt = $(this).text();
         var index = $(this).index();
@@ -170,7 +205,7 @@ function Bob() {
 $("#addToBasket").click(function () {
     if ($('#selectSpan').text() != "Виберіть розмір") {
 
-       
+
         if (window.sessionStorage.getItem("MassItemToBasket") != null) {
             if (JSON.parse(window.sessionStorage.getItem("MassItemToBasket")).length == undefined) {
                 massBasket.length = 0;
@@ -178,6 +213,7 @@ $("#addToBasket").click(function () {
                 if (massBasket[0].idProd != idProduct || massBasket[0].SetSize != $('#selectSpan').text()) {
                     window.sessionStorage.clear("MassItemToBasket");
                     massBasket.push({ idProd: idProduct, SetSize: $('#selectSpan').text() });
+                    $('#addToBasket').text("Додано");
                     window.sessionStorage.setItem("MassItemToBasket", JSON.stringify(massBasket));
                 }
             }
@@ -187,11 +223,13 @@ $("#addToBasket").click(function () {
                 if (massBasket.find(element => element.idProd == idProduct && element.SetSize == $('#selectSpan').text()) == undefined) {
                     window.sessionStorage.clear("MassItemToBasket");
                     massBasket.push({ idProd: idProduct, SetSize: $('#selectSpan').text() });
+                    $('#addToBasket').text("Додано");
                     window.sessionStorage.setItem("MassItemToBasket", JSON.stringify(massBasket));
                 }
             }
         }
         else {
+                    $('#addToBasket').text("Додано");
             window.sessionStorage.setItem("MassItemToBasket", JSON.stringify({ idProd: idProduct, SetSize: $('#selectSpan').text() }));
         }
 
