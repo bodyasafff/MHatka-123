@@ -51,7 +51,9 @@ function GetProduct() {
                     if (countToGeneratePickSize == 1) {
                         $('#select-superpower').append($('<option>').attr('velue', '').append("Виберіть розмір"))
                     }
-                    $('#select-superpower').append($('<option>').attr('value', '').append(value.Sizes));
+                    if (value.Sizes != "") {
+                        $('#select-superpower').append($('<option>').attr('value', '').append(value.Sizes));
+                    }
                 }
             })
             SelectBox();
