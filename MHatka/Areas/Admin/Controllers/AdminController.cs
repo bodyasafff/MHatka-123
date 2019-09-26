@@ -58,7 +58,7 @@ namespace MHatka.Areas.Admin.Controllers
             }
         }
         [HttpPost]
-        public ActionResult AddProductToSlider(int thisprodid = 0, string name = "",string description= "",string image="",string prodid = "")
+        public ActionResult AddProductToSlider(int thisprodid = 0, string name = "", string description = "", string image = "", string prodid = "")
         {
             using (EfContext ctx = new EfContext())
             {
@@ -70,13 +70,13 @@ namespace MHatka.Areas.Admin.Controllers
                 {
 
                     var delpath = System.AppDomain.CurrentDomain.BaseDirectory;
-                    
-                        if (System.IO.File.Exists(delpath + "\\Image\\" + product.Image))
-                        
-                            System.IO.File.Delete(delpath + "\\Image\\" + product.Image);
 
-                        
-                        string base64 = image;
+                    if (System.IO.File.Exists(delpath + "\\Image\\" + product.Image))
+
+                        System.IO.File.Delete(delpath + "\\Image\\" + product.Image);
+
+
+                    string base64 = image;
                     byte[] bytes = Convert.FromBase64String(base64.Split(',')[1]);
                     Bitmap bmp;
                     using (var ms = new MemoryStream(bytes))
@@ -153,7 +153,7 @@ namespace MHatka.Areas.Admin.Controllers
             }
         }
         [HttpPost]
-        public ActionResult EditProduct(string[] img,bool ifChang, string idProduct = "", string token = "", string name = "", string group = "", string article = "", string size = "", string price = "", string description = "", string brend = "", string country = "", string filler = "", string material = "", string special = "", string typeCloth = "")
+        public ActionResult EditProduct(string[] img, bool ifChang, string idProduct = "", string token = "", string name = "", string group = "", string article = "", string size = "", string price = "", string description = "", string brend = "", string country = "", string filler = "", string material = "", string special = "", string typeCloth = "")
         {
             using (EfContext ctx = new EfContext())
             {
@@ -193,12 +193,12 @@ namespace MHatka.Areas.Admin.Controllers
                                 temp.Add(new Models.Image { Name = imoge });
                             }
                         }
+                        product.Images = temp;
                     }
 
 
 
 
-                    product.Images = temp;
                     product.Name = name;
                     product.Article = article;
                     product.Description = description;

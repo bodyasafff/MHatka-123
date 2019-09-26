@@ -445,7 +445,7 @@ $("#clickAddProdToSlider").click(function () {
 
 
 $("#editPtod").click(function () {
-    ifChange = false;
+   
     EditProduct();
     Clearing();
 })
